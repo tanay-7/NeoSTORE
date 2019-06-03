@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+>
+
+    <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar_registration"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorLoginActivity"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:elevation="4dp"
+    >
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  style="@style/style_toolbar_registration"
+        />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:background="@color/colorLoginActivity"
+                  android:paddingLeft="100px"
+                  android:paddingRight="100px">
+
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="NeoSTORE"
+                  android:fontFamily="@font/gotham"
+                  android:textColor="@color/colorBasic"
+                  android:textSize="135px"
+                  android:gravity="center"
+                  android:textStyle="bold"
+                  android:layout_marginTop="50dp"
+                  android:layout_marginBottom="20dp"
+        />
+
+        <!--First Name-->
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="100px"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/bordered_box"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:layout_marginTop="10dp">
+
+            <ImageView style="@style/style_imageview"
+                       android:src="@drawable/ic_username"
+                       android:layout_marginRight="16dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_firstname"
+                    android:hint="First Name"
+                    android:inputType="text"
+                    style="@style/style_edittext"
+            />
+
+        </LinearLayout>
+
+        <!--Last Name-->
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="100px"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/bordered_box"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:layout_marginTop="10dp">
+
+            <ImageView style="@style/style_imageview"
+                       android:src="@drawable/ic_username"
+                       android:layout_marginRight="16dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_lastname"
+                    android:hint="Last Name"
+                    android:inputType="text"
+                    style="@style/style_edittext"
+            />
+
+        </LinearLayout>
+
+        <!--Email-->
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="100px"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/bordered_box"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:layout_marginTop="10dp">
+
+            <ImageView style="@style/style_imageview"
+                       android:src="@drawable/ic_email"
+                       android:layout_marginRight="16dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_email"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    style="@style/style_edittext"
+            />
+
+        </LinearLayout>
+
+
+        <!--Password-->
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="100px"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/bordered_box"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:layout_marginTop="10dp"
+        >
+
+            <ImageView style="@style/style_imageview"
+                       android:src="@drawable/ic_password"
+                       android:layout_marginRight="16dp"/>
+
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:hint="Password"
+                      android:inputType="textPassword"
+                      style="@style/style_edittext"
+            />
+        </LinearLayout>
+
+        <!--Confirm Password-->
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="100px"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/bordered_box"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:layout_marginTop="10dp"
+        >
+
+            <ImageView style="@style/style_imageview"
+                       android:src="@drawable/ic_password"
+                       android:layout_marginRight="16dp"/>
+
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:hint="Confirm Password"
+                      android:inputType="textPassword"
+                      style="@style/style_edittext"
+            />
+        </LinearLayout>
+
+        <!--Gender-->
+        <RadioGroup android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Gender"
+                      android:textColor="@color/colorBasic"
+                      android:fontFamily="@font/gotham"
+                      android:layout_marginRight="20dp"/>
+
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="Male"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/gotham"
+                    android:textColor="@color/colorBasic"
+                    android:buttonTint="@color/colorBasic"/>
+
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="Female"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorBasic"
+                    android:fontFamily="@font/gotham"
+                    android:buttonTint="@color/colorBasic"/>
+        </RadioGroup>
+
+        <!--Phone Number-->
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="100px"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/bordered_box"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:layout_marginTop="10dp">
+
+            <ImageView
+                    style="@style/style_imageview"
+                    android:src="@drawable/ic_phone"
+                    android:layout_marginRight="16dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_phone"
+                    android:hint="Phone Number"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    style="@style/style_edittext"
+            />
+
+        </LinearLayout>
+
+        <!--Terms and conditions-->
+        <CheckBox android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/chk_terms"
+                  android:fontFamily="@font/gotham"
+                  android:textColor="@color/colorBasic"
+                  android:text="@string/terms"
+                  android:buttonTint="@color/colorBasic"
+                  android:layout_marginTop="10dp"
+                  android:layout_gravity="center"
+        />
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="142px"
+                android:text="REGISTER"
+                android:background="@drawable/rounded_button_box"
+                android:textColor="@color/colorLoginActivity"
+                android:fontFamily="@font/gotham"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</LinearLayout>

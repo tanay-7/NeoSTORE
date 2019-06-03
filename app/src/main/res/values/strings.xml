@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NeoSTORE</string>
+    <string name="terms">I agree the
+        <u>Terms &amp; Conditions</u>
+    </string>
+    <string name="toolbar_register">Register</string>
+</resources>
