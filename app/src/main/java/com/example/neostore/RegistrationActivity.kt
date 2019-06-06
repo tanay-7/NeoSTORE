@@ -6,13 +6,16 @@ import android.support.v7.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_registration.*
 
 
-class RegistrationActivity : AppCompatActivity() {
+class RegistrationActivity : BaseActivity() {
 
     lateinit var toolbar_register: Toolbar
 
+    override var getLayout = R.layout.activity_registration //setContentView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration)
+
+        //setContentView(R.layout.activity_registration)
 
         toolbar_register = toolbar_registration
         setSupportActionBar(toolbar_register)
