@@ -1,9 +1,10 @@
 package com.example.neostore
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.neostore.features.base.BaseActivity
+import com.example.neostore.features.login.LoginActivity
 
 class StartupSplashActivity : BaseActivity() {
 

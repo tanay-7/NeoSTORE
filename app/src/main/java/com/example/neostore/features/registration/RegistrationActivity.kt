@@ -1,0 +1,69 @@
+package com.example.neostore.features.registration
+
+import android.content.Intent
+import android.os.Bundle
+import android.support.v7.widget.Toolbar
+import com.example.neostore.R
+import com.example.neostore.features.base.BaseActivity
+import com.example.neostore.features.login.LoginActivity
+import kotlinx.android.synthetic.main.activity_registration.*
+
+
+class RegistrationActivity : BaseActivity(), RegistrationContract.RegistartionView {
+    lateinit var toolbar_register: Toolbar
+    lateinit var registrationPresenter: RegistrationPresenter
+    override var getLayout = R.layout.activity_registration //setContentView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        try {
+            init()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun init() {
+
+        registrationPresenter = RegistrationPresenter(this)
+        var gender: String = ""
+        toolbar_register = toolbar_registration
+        setSupportActionBar(toolbar_register)
+
+        val action_bar = supportActionBar
+        action_bar!!.setDisplayHomeAsUpEnabled(true)
+        action_bar.setDisplayShowHomeEnabled(true)
+        action_bar.setDisplayShowTitleEnabled(false)
+
+        rdgrp.setOnCheckedChangeListener { group, checkedId ->
+            gender = if (checkedId == R.id.rdbtn_male) "Male" else "Female"
+        }
+
+        btn_register.setOnClickListener {
+            registrationPresenter.register(
+                txt_firstname.text.toString(),
+                txt_lastname.text.toString(),
+                txt_email.text.toString(),
+                txt_password.text.toString(),
+                txt_confirmpassword.text.toString(),
+                gender,
+                txt_phone.text.toString()
+            )
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+    override fun showRegistrationSuccess(message: String) {
+        makeToast(message)
+        var intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun showRegistrationError(err_message: String) {
+        makeToast(err_message)
+    }
+}

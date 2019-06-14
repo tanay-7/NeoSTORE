@@ -6,4 +6,5 @@
     <color name="colorLoginActivity">#e91b1a</color>
     <color name="colorBasic">#FFFFFF</color>
     <color name="colorRedDark">#9e0100</color>
+    <color name="colorBlack">#BB000000</color>
 </resources>

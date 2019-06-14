@@ -39,6 +39,7 @@
 
             <EditText android:layout_width="match_parent"
                       android:layout_height="wrap_content"
+                      android:id="@+id/etxt_username"
                       android:hint="Username"
                       android:fontFamily="@font/gotham"
                       android:textSize="22sp"
@@ -67,6 +68,7 @@
 
             <EditText android:layout_width="match_parent"
                       android:layout_height="wrap_content"
+                      android:id="@+id/etxt_password"
                       android:hint="Password"
                       android:textSize="22sp"
                       android:textColor="@color/colorBasic"
@@ -82,6 +84,7 @@
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="LOGIN"
+                android:id="@+id/btn_login"
                 android:fontFamily="@font/gotham"
                 android:textSize="20sp"
                 android:background="@drawable/rounded_button_box"
