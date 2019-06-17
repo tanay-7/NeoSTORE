@@ -1,11 +1,11 @@
-package com.example.neostore.features.registration
+package com.example.neostore.ui.mvp.registration
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import com.example.neostore.R
-import com.example.neostore.features.base.BaseActivity
-import com.example.neostore.features.login.LoginActivity
+import com.example.neostore.ui.base.BaseActivity
+import com.example.neostore.ui.mvp.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_registration.*
 
 

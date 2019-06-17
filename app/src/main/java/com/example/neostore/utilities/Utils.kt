@@ -1,4 +1,4 @@
-package com.example.neostore.Utilities
+package com.example.neostore.utilities
 
 class Utils {
     companion object {

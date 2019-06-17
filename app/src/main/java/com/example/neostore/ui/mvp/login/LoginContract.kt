@@ -1,11 +1,9 @@
-package com.example.neostore.features.login
+package com.example.neostore.ui.mvp.login
 
 interface LoginContract {
     interface LoginView {
         fun showLoginSuccess(message : String)
         fun showLoginError()
-        fun showLoader()
-        fun closeLoader()
     }
 
     interface LoginPresenter {

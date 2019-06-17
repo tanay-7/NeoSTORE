@@ -1,4 +1,4 @@
-package com.example.neostore.features.base
+package com.example.neostore.ui.base
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

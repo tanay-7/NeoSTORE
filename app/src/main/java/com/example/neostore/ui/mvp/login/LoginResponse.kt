@@ -1,4 +1,4 @@
-package com.example.neostore.features.login
+package com.example.neostore.ui.mvp.login
 
 data class LoginResponse(
     var id: Int = 0,

@@ -1,13 +1,11 @@
-package com.example.neostore.features.login
+package com.example.neostore.ui.mvp.login
 
 import android.util.Log
-import android.view.View
 import com.example.neostore.network.Api
 import com.example.neostore.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 
 class LoginPresenter : LoginContract.LoginPresenter {
 
@@ -19,8 +17,6 @@ class LoginPresenter : LoginContract.LoginPresenter {
     }
 
     override fun login(email: String, password: String) {
-        Log.d("Login", email + " " + password)
-
         // Api Call
         apiService = RetrofitClient.provideRetro().create(Api::class.java)
         apiService.userLogin(email, password).enqueue(
@@ -33,8 +29,7 @@ class LoginPresenter : LoginContract.LoginPresenter {
                 override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>) {
                     if (response.isSuccessful) {
                         var results = response.body()
-                        Log.d("Status_Message", results!!.message)
-                        loginView.showLoginSuccess(results.message)
+                        loginView.showLoginSuccess(results!!.message)
                     }
                 }
             }

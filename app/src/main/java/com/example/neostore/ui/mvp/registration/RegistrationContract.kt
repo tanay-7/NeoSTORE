@@ -1,4 +1,4 @@
-package com.example.neostore.features.registration
+package com.example.neostore.ui.mvp.registration
 
 interface RegistrationContract {
     interface RegistartionView {

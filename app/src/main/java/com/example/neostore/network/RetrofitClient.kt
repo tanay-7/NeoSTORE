@@ -1,7 +1,7 @@
 package com.example.neostore.network
 
 import com.example.neostore.BuildConfig
-import com.example.neostore.Utilities.Utils
+import com.example.neostore.utilities.Utils
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.example.neostore.features.registration
+package com.example.neostore.ui.mvp.registration
 
 import com.example.neostore.network.Api
 import com.example.neostore.network.RetrofitClient
@@ -6,7 +6,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import org.json.JSONObject
-
 
 class RegistrationPresenter : RegistrationContract.RegistrationPresenter {
 

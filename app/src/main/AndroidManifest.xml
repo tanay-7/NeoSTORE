@@ -13,7 +13,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".HomeScreenActivity"
+                android:name=".ui.homescreen.HomeScreenActivity"
                 android:label="@string/title_activity_navigation_drawer"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -24,9 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".features.login.LoginActivity">
+        <activity android:name="com.example.neostore.ui.mvp.login.LoginActivity">
         </activity>
-        <activity android:name=".features.registration.RegistrationActivity">
+        <activity android:name="com.example.neostore.ui.mvp.registration.RegistrationActivity">
         </activity>
     </application>
 

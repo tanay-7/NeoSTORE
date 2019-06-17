@@ -1,11 +1,11 @@
-package com.example.neostore.features.login
+package com.example.neostore.ui.mvp.login
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.neostore.HomeScreenActivity
-import com.example.neostore.features.base.BaseActivity
+import com.example.neostore.ui.homescreen.HomeScreenActivity
+import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.R
-import com.example.neostore.features.registration.RegistrationActivity
+import com.example.neostore.ui.mvp.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), LoginContract.LoginView {
@@ -17,7 +17,6 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         try {
             init()
         } catch (e: Exception) {
@@ -26,7 +25,6 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
     }
 
     private fun init() {
-
         loginPresenter = LoginPresenter(this)
         btn_plus.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
@@ -46,11 +44,5 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
     override fun showLoginError() {
         makeToast("Login Error")
-    }
-
-    override fun showLoader() {
-    }
-
-    override fun closeLoader() {
     }
 }

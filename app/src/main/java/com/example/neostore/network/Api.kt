@@ -1,7 +1,7 @@
 package com.example.neostore.network
 
-import com.example.neostore.features.login.LoginResponse
-import com.example.neostore.features.registration.RegistrationResponse
+import com.example.neostore.ui.mvp.login.LoginResponse
+import com.example.neostore.ui.mvp.registration.RegistrationResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
