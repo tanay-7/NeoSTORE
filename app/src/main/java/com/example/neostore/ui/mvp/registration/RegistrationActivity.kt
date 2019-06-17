@@ -24,7 +24,6 @@ class RegistrationActivity : BaseActivity(), RegistrationContract.RegistartionVi
     }
 
     private fun init() {
-
         registrationPresenter = RegistrationPresenter(this)
         var gender: String = ""
         toolbar_register = toolbar_registration

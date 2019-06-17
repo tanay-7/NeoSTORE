@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
     override var getLayout = R.layout.activity_login //setContentView
-
     // Presenter
     lateinit var loginPresenter: LoginPresenter
 
