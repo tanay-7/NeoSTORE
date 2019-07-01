@@ -3,6 +3,9 @@
     <string name="terms">I agree the
         <u>Terms &amp; Conditions</u>
     </string>
+    <string name="forgot_password">
+        <u>Forgot Password?</u>
+    </string>
     <string name="toolbar_register">Register</string>
     <string name="open">Open</string>
     <string name="close">Close</string>

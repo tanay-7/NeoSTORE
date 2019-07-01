@@ -1,8 +1,15 @@
 package com.example.neostore.ui.mvp.login
 
 import android.util.Log
+import com.example.neostore.network.APICallback
+import com.example.neostore.network.APIManager
 import com.example.neostore.network.Api
 import com.example.neostore.network.RetrofitClient
+import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -10,6 +17,7 @@ import retrofit2.Response
 class LoginPresenter : LoginContract.LoginPresenter {
 
     lateinit var apiService: Api
+    lateinit var results: LoginResponse
     var loginView: LoginContract.LoginView
 
     constructor(loginView: LoginContract.LoginView) {
@@ -18,21 +26,66 @@ class LoginPresenter : LoginContract.LoginPresenter {
 
     override fun login(email: String, password: String) {
         // Api Call
-        apiService = RetrofitClient.provideRetro().create(Api::class.java)
-        apiService.userLogin(email, password).enqueue(
-            object : Callback<LoginResponse> {
-                override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
-                    Log.d("Error", t.toString())
-                    loginView.showLoginError()
-                }
 
-                override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>) {
-                    if (response.isSuccessful) {
-                        var results = response.body()
-                        loginView.showLoginSuccess(results!!.message)
-                    }
-                }
+        val userObserver: Observer<LoginResponse> = getLoginObserver()
+        apiService = RetrofitClient.provideRetro().create(Api::class.java)
+        apiService.userLogin(email, password)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(userObserver)
+    }
+
+    private fun getLoginObserver(): Observer<LoginResponse> {
+        return object : Observer<LoginResponse> {
+            override fun onSubscribe(d: Disposable) {
+
             }
-        )
+
+            override fun onNext(t: LoginResponse) {
+                results = t
+                loginView.showLoginSuccess(results!!.message)
+            }
+
+            override fun onError(e: Throwable) {
+
+            }
+
+            override fun onComplete() {
+
+            }
+        }
     }
 }
+
+
+//Callback Code
+
+/*APIManager().login(email, password, object : APICallback<LoginResponse>() {
+          override fun onCustomResponse(statusCode: Int?, response: LoginResponse?) {
+              var results = response
+              loginView.showLoginSuccess(results!!.message)
+          }
+      })*/
+
+//End
+
+
+//Retrofit Code without bypassing it through interface
+
+/*apiService = RetrofitClient.provideRetro().create(Api::class.java)
+apiService.userLogin(email, password).enqueue(
+    object : Callback<LoginResponse> {
+        override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
+            loginView.showLoginError()
+        }
+
+        override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>) {
+            if (response.isSuccessful) {
+                var results = response.body()
+                loginView.showLoginSuccess(results!!.message)
+            }
+        }
+    }
+)*/
+
+//End

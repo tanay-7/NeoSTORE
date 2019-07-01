@@ -8,25 +8,34 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
+import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.view.View
 import com.example.neostore.R
+import com.example.neostore.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 
-class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    override var getLayout = R.layout.activity_navigation_drawer
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_navigation_drawer)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+    internal lateinit var viewPager: ViewPager
+
+    override fun init() {
+        val toolbar: Toolbar = toolbar
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
+        val action_bar = supportActionBar
+        action_bar!!.setDisplayShowTitleEnabled(false)
+
+        /*val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+*/
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
@@ -38,6 +47,10 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        viewPager = findViewById<View>(R.id.viewPager) as ViewPager
+        val adapter = HomeScreenAdapter(this)
+        viewPager.adapter = adapter
     }
 
     override fun onBackPressed() {

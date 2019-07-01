@@ -14,16 +14,7 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
     // Presenter
     lateinit var loginPresenter: LoginPresenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        try {
-            init()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    private fun init() {
+    override fun init() {
         loginPresenter = LoginPresenter(this)
         btn_plus.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
@@ -31,7 +22,7 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
         }
 
         btn_login.setOnClickListener {
-            loginPresenter?.login(etxt_username.text.toString(), etxt_password.text.toString())
+            loginPresenter.login(txt_username.text.toString(), txt_password.text.toString())
         }
     }
 
@@ -45,3 +36,14 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
         makeToast("Login Error")
     }
 }
+
+
+/*
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        try {
+            init()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }*/

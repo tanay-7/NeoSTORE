@@ -2,6 +2,7 @@ package com.example.neostore.network
 
 import com.example.neostore.ui.mvp.login.LoginResponse
 import com.example.neostore.ui.mvp.registration.RegistrationResponse
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -12,7 +13,7 @@ interface Api {
 
     @FormUrlEncoded
     @POST("users/login")
-    fun userLogin(@Field("email") email: String, @Field("password") password: String): Call<LoginResponse>
+    fun userLogin(@Field("email") email: String, @Field("password") password: String): Observable<LoginResponse>
 
     @FormUrlEncoded
     @POST("users/register")
@@ -24,6 +25,6 @@ interface Api {
         @Field("confirm_password") confirm_password: String,
         @Field("gender") gender: String,
         @Field("phone_no") phone_no: String
-    ): Call<RegistrationResponse>
+    ): Call<RegistrationResponse> //  Call
 }
 

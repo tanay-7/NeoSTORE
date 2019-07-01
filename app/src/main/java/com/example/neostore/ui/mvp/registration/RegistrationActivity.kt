@@ -14,16 +14,7 @@ class RegistrationActivity : BaseActivity(), RegistrationContract.RegistartionVi
     lateinit var registrationPresenter: RegistrationPresenter
     override var getLayout = R.layout.activity_registration //setContentView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        try {
-            init()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    private fun init() {
+    override fun init() {
         registrationPresenter = RegistrationPresenter(this)
         var gender: String = ""
         toolbar_register = toolbar_registration
@@ -66,3 +57,12 @@ class RegistrationActivity : BaseActivity(), RegistrationContract.RegistartionVi
         makeToast(err_message)
     }
 }
+
+/*  override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        try {
+            init()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }*/
