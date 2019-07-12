@@ -6,60 +6,46 @@
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_mycart"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_cart"
                 android:title="@string/menu_mycart"
         />
         <item
                 android:id="@+id/nav_tables"
-                android:icon="@drawable/ic_menu_gallery"
+                android:icon="@drawable/ic_table"
                 android:title="@string/menu_tables"/>
         <item
                 android:id="@+id/nav_sofas"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_sofa"
                 android:title="@string/menu_sofas"/>
         <item
                 android:id="@+id/nav_chairs"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_chair"
                 android:title="@string/menu_chairs"/>
 
         <item
                 android:id="@+id/nav_cupboards"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_cupboard"
                 android:title="@string/menu_cupboards"/>
 
         <item
                 android:id="@+id/nav_myaccount"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_myaccount"
                 android:title="@string/menu_myaccount"/>
 
         <item
                 android:id="@+id/nav_storelocator"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_storelocator"
                 android:title="@string/menu_storelocator"/>
 
         <item
                 android:id="@+id/nav_myorders"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_myorders"
                 android:title="@string/menu_myorders"/>
 
         <item
                 android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_logout"
                 android:title="@string/menu_logout"/>
     </group>
-
-    <!--<item android:title="Communicate">-->
-    <!--<menu>-->
-    <!--<item-->
-    <!--android:id="@+id/nav_share"-->
-    <!--android:icon="@drawable/ic_menu_share"-->
-    <!--android:title="@string/menu_share"-->
-    <!--/>-->
-    <!--<item-->
-    <!--android:id="@+id/nav_send"-->
-    <!--android:icon="@drawable/ic_menu_send"-->
-    <!--android:title="@string/menu_send"/>-->
-    <!--</menu>-->
-    <!--</item>-->
 
 </menu>

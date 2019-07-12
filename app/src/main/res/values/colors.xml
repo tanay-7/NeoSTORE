@@ -6,6 +6,7 @@
     <color name="colorLoginActivity">#e91b1a</color>
     <color name="colorBasic">#FFFFFF</color>
     <color name="colorRedDark">#9e0100</color>
-    <color name="colorBlack">#BB000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorMatteBlack">#343434</color>
     <color name="colorStatusbar">#E92624</color>
 </resources>

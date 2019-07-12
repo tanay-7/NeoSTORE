@@ -36,14 +36,3 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
         makeToast("Login Error")
     }
 }
-
-
-/*
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        try {
-            init()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }*/

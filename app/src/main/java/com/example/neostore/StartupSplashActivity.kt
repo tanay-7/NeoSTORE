@@ -12,9 +12,8 @@ class StartupSplashActivity : BaseActivity() {
     private var mDelayHandler: Handler? = null
     private val SPLASH_DELAY: Long = 4000
 
-    internal val mRunnable: Runnable = Runnable {
+    val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
-
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -30,12 +29,3 @@ class StartupSplashActivity : BaseActivity() {
 
 
 }
-
-/* override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        mDelayHandler = Handler()
-
-        //Navigate with delay
-        mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
-    }*/
