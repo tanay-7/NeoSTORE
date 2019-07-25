@@ -65,7 +65,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:pageColor="#E91C1A"
-        app:snap="false"></com.viewpagerindicator.CirclePageIndicator>
+        app:snap="false" />
 
 
     <ImageView

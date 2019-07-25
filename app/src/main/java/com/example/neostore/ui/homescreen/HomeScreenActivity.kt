@@ -1,6 +1,7 @@
 package com.example.neostore.ui.homescreen
 
 import android.content.Intent
+import android.os.Bundle
 import android.os.Handler
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -13,16 +14,18 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.Menu
-import android.view.View
 import com.example.neostore.R
 import com.example.neostore.models.DrawerModel
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.login.LoginActivity
+import com.example.neostore.ui.mvp.productlisting.ProductListingActivity
+import com.example.neostore.extensions.onClick
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import java.util.*
 import kotlin.collections.ArrayList
 import com.viewpagerindicator.CirclePageIndicator
+import kotlinx.android.synthetic.main.content_navigation_drawer.*
 
 class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, OnMenuItemListener {
     override var getLayout = R.layout.activity_navigation_drawer
@@ -72,9 +75,37 @@ class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelect
 
         navView.setNavigationItemSelectedListener(this)
 
-        /*viewPager = findViewById<View>(R.id.viewPager) as ViewPager
-        val adapter = HomeScreenAdapter(this)
-        viewPager.adapter = adapter*/
+        table_icon.onClick {
+            var bundle = Bundle()
+            bundle.putString("product_id", "1")
+            val intent = Intent(this, ProductListingActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+
+        chair_icon.onClick {
+            var bundle = Bundle()
+            bundle.putString("product_id", "2")
+            val intent = Intent(this, ProductListingActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+
+        sofa_icon.onClick {
+            var bundle = Bundle()
+            bundle.putString("product_id", "3")
+            val intent = Intent(this, ProductListingActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+
+        cupboards_icon.onClick {
+            var bundle = Bundle()
+            bundle.putString("product_id", "4")
+            val intent = Intent(this, ProductListingActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -105,7 +136,7 @@ class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelect
 
         //Logout
         if (position == 8) {
-            var intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }

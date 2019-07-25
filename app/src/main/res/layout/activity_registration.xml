@@ -13,7 +13,7 @@
             android:id="@+id/toolbar_registration"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorLoginActivity"
+            android:background="@color/color_red"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:elevation="4dp"
     >
@@ -28,7 +28,7 @@
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
-                  android:background="@color/colorLoginActivity"
+                  android:background="@color/color_red"
                   android:paddingLeft="100px"
                   android:paddingRight="100px">
 
@@ -37,7 +37,7 @@
                   android:layout_height="wrap_content"
                   android:text="NeoSTORE"
                   android:fontFamily="@font/gotham"
-                  android:textColor="@color/colorBasic"
+                  android:textColor="@color/color_white"
                   android:textSize="135px"
                   android:gravity="center"
                   android:textStyle="bold"
@@ -181,7 +181,7 @@
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text="Gender"
-                      android:textColor="@color/colorBasic"
+                      android:textColor="@color/color_white"
                       android:fontFamily="@font/gotham"
                       android:layout_marginRight="20dp"/>
 
@@ -192,8 +192,8 @@
                     android:text="Male"
                     android:textSize="15sp"
                     android:fontFamily="@font/gotham"
-                    android:textColor="@color/colorBasic"
-                    android:buttonTint="@color/colorBasic"/>
+                    android:textColor="@color/color_white"
+                    android:buttonTint="@color/color_white"/>
 
             <RadioButton
                     android:id="@+id/rdbtn_female"
@@ -201,9 +201,9 @@
                     android:layout_height="25dp"
                     android:text="Female"
                     android:textSize="15sp"
-                    android:textColor="@color/colorBasic"
+                    android:textColor="@color/color_white"
                     android:fontFamily="@font/gotham"
-                    android:buttonTint="@color/colorBasic"/>
+                    android:buttonTint="@color/color_white"/>
         </RadioGroup>
 
         <!--Phone Number-->
@@ -238,9 +238,9 @@
                   android:layout_height="wrap_content"
                   android:id="@+id/chk_terms"
                   android:fontFamily="@font/gotham"
-                  android:textColor="@color/colorBasic"
+                  android:textColor="@color/color_white"
                   android:text="@string/terms"
-                  android:buttonTint="@color/colorBasic"
+                  android:buttonTint="@color/color_white"
                   android:layout_marginTop="10dp"
                   android:layout_gravity="center"
         />
@@ -250,7 +250,7 @@
                 android:id="@+id/btn_register"
                 android:text="REGISTER"
                 android:background="@drawable/rounded_button_box"
-                android:textColor="@color/colorLoginActivity"
+                android:textColor="@color/color_red"
                 android:fontFamily="@font/gotham"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp"/>

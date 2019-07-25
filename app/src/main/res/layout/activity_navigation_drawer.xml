@@ -19,8 +19,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorBlack"
-        app:itemIconTint="@color/colorBasic"
+        app:itemIconTint="@color/color_white"
         app:itemTextAppearance="@style/TextAppearance.AppCompat"
-        app:itemTextColor="@color/colorBasic" />
+        app:itemTextColor="@color/color_white" />
 
 </android.support.v4.widget.DrawerLayout>

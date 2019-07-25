@@ -1,36 +1,40 @@
 package com.example.neostore.network
 
-import com.example.neostore.BuildConfig
-import com.example.neostore.utilities.Utils
+import com.example.neostore.utilities.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitClient {
+class RetrofitClient private constructor() {
+
+    init {
+        buildRetrofit()
+    }
 
     companion object {
-        internal var logging = HttpLoggingInterceptor()
-        internal var httpClient = OkHttpClient.Builder().addInterceptor(logging)
-        lateinit var retroClient: Retrofit
+        private var logging = HttpLoggingInterceptor()
+        private var httpClient = OkHttpClient.Builder().addInterceptor(logging)
+        private lateinit var retroClient: Retrofit
+        private var retrofitClient: RetrofitClient? = null
 
-        fun provideRetro(): Retrofit {
-
-            if (BuildConfig.DEBUG)
-                logging.setLevel(HttpLoggingInterceptor.Level.BODY) else
-                logging.setLevel(HttpLoggingInterceptor.Level.NONE)
-
-            retroClient = Retrofit.Builder()
-                .baseUrl(Utils.BASE_URL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(httpClient.build())
-                .build()
-
-            return retroClient
+        fun getInstance(): RetrofitClient {
+            if (retrofitClient == null) {
+                retrofitClient = RetrofitClient()
+            }
+            return retrofitClient!!
         }
+    }
 
-        val apiService: Api = provideRetro().create(Api::class.java)
+    private fun buildRetrofit(): Api {
+        retroClient = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient.build())
+            .build()
+
+        return retroClient.create(Api::class.java)
     }
 }

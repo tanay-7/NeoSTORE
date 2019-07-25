@@ -1,13 +1,13 @@
-package com.example.neostore.ui.productlisting
+package com.example.neostore.ui.mvp.productlisting
 
 data class ProductListResponse(
     var status: Number,
     var message: String,
     var user_msg: String,
-    var data: Array<Data>
+    var data: ArrayList<ProductListData>
 )
 
-data class Data(
+data class ProductListData(
     var id: Number,
     var product_category_id: Number,
     var name: String,

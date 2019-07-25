@@ -1,18 +1,11 @@
 package com.example.neostore.ui.mvp.login
 
-import android.util.Log
-import com.example.neostore.network.APICallback
-import com.example.neostore.network.APIManager
 import com.example.neostore.network.Api
 import com.example.neostore.network.RetrofitClient
-import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginPresenter : LoginContract.LoginPresenter {
 
@@ -43,7 +36,7 @@ class LoginPresenter : LoginContract.LoginPresenter {
 
             override fun onNext(t: LoginResponse) {
                 results = t
-                loginView.showLoginSuccess(results!!.message)
+                loginView.showLoginSuccess(results.message)
             }
 
             override fun onError(e: Throwable) {

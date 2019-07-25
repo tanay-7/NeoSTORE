@@ -1,11 +1,11 @@
 package com.example.neostore.ui.mvp.registration
 
 import android.content.Intent
-import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import com.example.neostore.R
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.login.LoginActivity
+import com.example.neostore.extensions.onClick
 import kotlinx.android.synthetic.main.activity_registration.*
 
 
@@ -29,7 +29,7 @@ class RegistrationActivity : BaseActivity(), RegistrationContract.RegistartionVi
             gender = if (checkedId == R.id.rdbtn_male) "Male" else "Female"
         }
 
-        btn_register.setOnClickListener {
+        btn_register.onClick {
             registrationPresenter.register(
                 txt_firstname.text.toString(),
                 txt_lastname.text.toString(),
@@ -49,7 +49,7 @@ class RegistrationActivity : BaseActivity(), RegistrationContract.RegistartionVi
 
     override fun showRegistrationSuccess(message: String) {
         makeToast(message)
-        var intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
 
@@ -57,12 +57,3 @@ class RegistrationActivity : BaseActivity(), RegistrationContract.RegistartionVi
         makeToast(err_message)
     }
 }
-
-/*  override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        try {
-            init()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }*/

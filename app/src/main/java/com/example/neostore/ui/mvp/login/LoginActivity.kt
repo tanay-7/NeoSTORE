@@ -1,12 +1,15 @@
 package com.example.neostore.ui.mvp.login
 
 import android.content.Intent
-import android.os.Bundle
 import com.example.neostore.ui.homescreen.HomeScreenActivity
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.R
+import com.example.neostore.extensions.goneView
 import com.example.neostore.ui.mvp.registration.RegistrationActivity
+import com.example.neostore.extensions.onClick
+import com.example.neostore.extensions.showView
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.spinner_layout.*
 
 class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
@@ -16,19 +19,20 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
     override fun init() {
         loginPresenter = LoginPresenter(this)
-        btn_plus.setOnClickListener {
+        btn_plus.onClick {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
         }
 
-        btn_login.setOnClickListener {
+        btn_login.onClick {
+            spin_kit.showView()
             loginPresenter.login(txt_username.text.toString(), txt_password.text.toString())
         }
     }
 
     override fun showLoginSuccess(message: String) {
         makeToast(message)
-        var intent = Intent(this, HomeScreenActivity::class.java)
+        val intent = Intent(this, HomeScreenActivity::class.java)
         startActivity(intent)
     }
 

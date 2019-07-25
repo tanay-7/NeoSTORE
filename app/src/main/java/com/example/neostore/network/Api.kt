@@ -1,15 +1,12 @@
 package com.example.neostore.network
 
 import com.example.neostore.ui.mvp.login.LoginResponse
+import com.example.neostore.ui.mvp.productdetails.ProductDetailsResponse
+import com.example.neostore.ui.mvp.productlisting.ProductListResponse
 import com.example.neostore.ui.mvp.registration.RegistrationResponse
-import com.example.neostore.ui.productlisting.ProductListResponse
 import io.reactivex.Observable
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Api {
 
@@ -32,12 +29,16 @@ interface Api {
         @Field("phone_no") phone_no: String
     ): Call<RegistrationResponse> //  Call
 
-    @FormUrlEncoded
     @GET("products/getList")
     fun getProductList(
-        @Field("product_category_id") product_category_id: String,
-        @Field("limit") limit: Int,
-        @Field("page") page: Int
+        @Query("product_category_id") product_category_id: String,
+        @Query("limit") limit: String,
+        @Query("page") page: String
     ): Observable<ProductListResponse>
+
+    @GET("products/getDetail")
+    fun getProductDetails(
+        @Query("product_id") product_id: String
+    ): Observable<ProductDetailsResponse>
 }
 

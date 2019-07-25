@@ -34,7 +34,7 @@
             android:paddingTop="8dp"
             android:text="Tanay Kulkarni"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/colorBasic"
+            android:textColor="@color/color_white"
             android:textSize="20dp" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:paddingTop="4dp"
             android:text="tanay.kulkarni@gmail.com"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/colorBasic"
+            android:textColor="@color/color_white"
             android:textSize="16dp" />
     </LinearLayout>
 

@@ -12,8 +12,8 @@
     <style name="style_edittext">
         <item name="android:fontFamily">@font/gotham</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@color/colorBasic</item>
-        <item name="android:textColorHint">@color/colorBasic</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textColorHint">@color/color_white</item>
         <item name="android:background">@null</item>
         <item name="android:textSize">15sp</item>
     </style>
@@ -28,7 +28,7 @@
         <item name="android:text">@string/toolbar_register</item>
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">@color/colorBasic</item>
+        <item name="android:textColor">@color/color_white</item>
         <item name="android:fontFamily">@font/gotham</item>
     </style>
 

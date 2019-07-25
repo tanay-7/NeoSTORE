@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".StartupSplashActivity"
-        android:background="@color/colorLoginActivity">
+        android:background="@color/color_red">
 
 
     <TextView
@@ -15,7 +15,7 @@
             android:layout_centerInParent="true"
             android:text="Welcome to NeoSTORE"
             android:fontFamily="@font/gotham"
-            android:textColor="@color/colorBasic"
+            android:textColor="@color/color_white"
             android:textSize="30sp"
     />
 </RelativeLayout>
