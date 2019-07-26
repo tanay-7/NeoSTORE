@@ -1,6 +1,6 @@
 package com.example.neostore.ui.mvp.productdetails
 
-import android.content.Context
+import android.util.Log.d
 import com.example.neostore.network.Api
 import com.example.neostore.network.RetrofitClient
 import io.reactivex.Observer
@@ -8,20 +8,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ProductDetailsPresenter(productDetailsView: ProductDetailsContract.ProductDetailsView, context: Context) :
+class ProductDetailsPresenter(val productDetailsView: ProductDetailsContract.ProductDetailsView) :
     ProductDetailsContract.ProductDetailsPresenter {
 
     lateinit var apiService: Api
     lateinit var results: ProductDetailsResponse
-    var productDetailsView: ProductDetailsContract.ProductDetailsView
 
-    init {
-        this.productDetailsView = productDetailsView
-    }
-
-    override fun getProductDetails(product_id: String) {
+    override fun getProductDetails(product_id: Number) {
         val productDetailsObserver: Observer<ProductDetailsResponse> = getProductDetailsObserver()
-        apiService = RetrofitClient.provideRetro().create(Api::class.java)
+        //apiService = RetrofitClient.provideRetro().create(Api::class.java)
+        apiService = RetrofitClient.getInstance().getClient().create(Api::class.java)
         apiService.getProductDetails(product_id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
@@ -43,7 +39,7 @@ class ProductDetailsPresenter(productDetailsView: ProductDetailsContract.Product
             }
 
             override fun onError(e: Throwable) {
-
+                d("errorrrr",e.message)
             }
         }
     }

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.2"/>
+            app:layout_constraintGuide_percent="0.22"/>
 
     <android.support.constraint.Guideline
             android:id="@+id/gl_bottom"
@@ -42,6 +42,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             app:layout_constraintTop_toBottomOf="@id/toolbar_product_details"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_product_category"
     />
 
     <TextView
@@ -51,7 +52,8 @@
             android:text="Category"
             android:textSize="20sp"
             android:fontFamily="@font/gotham"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_shop_name"
             app:layout_constraintTop_toBottomOf="@id/tv_product_title"
             app:layout_constraintLeft_toLeftOf="@id/tv_product_title"
     />
@@ -63,9 +65,12 @@
             android:text="Shop Name"
             android:textSize="16sp"
             android:fontFamily="@font/gotham"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
             app:layout_constraintLeft_toLeftOf="@id/tv_product_category"
-            app:layout_constraintTop_toBottomOf="@id/tv_product_category"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_product_category"
+            app:layout_constraintBottom_toTopOf="@id/gl_top"
+    />
 
     <android.support.v7.widget.AppCompatRatingBar
             android:layout_width="wrap_content"
@@ -104,7 +109,7 @@
                     android:textColor="@color/color_red"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="18dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="18dp"
             />
 
@@ -113,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_share"
-                    android:layout_marginRight="18dp"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@id/txt_product_price"/>
 
@@ -135,9 +140,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="32dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_product"
+                    tools:listitem="@layout/item_product_images"
             />
 
             <View android:id="@+id/view_divider"
@@ -160,8 +170,9 @@
                     android:text="DESCRIPTION"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp"
-                    android:layout_marginLeft="12dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
             />
 
             <TextView
@@ -170,8 +181,8 @@
                     android:inputType="textMultiLine"
                     android:fontFamily="@font/gotham"
                     android:textSize="16sp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:layout_marginBottom="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="4dp"
                     android:text="Android Inc. was founded in Palo Alto, California, in October 2003 by Andy Rubin, Rich Miner, Nick Sears, and Chris White. Rubin described the Android project as tremendous potential in developing smarter mobile devices that are more aware of its owners location and preferences"

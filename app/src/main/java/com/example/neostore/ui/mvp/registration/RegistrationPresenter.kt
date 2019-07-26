@@ -2,10 +2,10 @@ package com.example.neostore.ui.mvp.registration
 
 import com.example.neostore.network.Api
 import com.example.neostore.network.RetrofitClient
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import org.json.JSONObject
 
 class RegistrationPresenter : RegistrationContract.RegistrationPresenter {
 
@@ -25,7 +25,7 @@ class RegistrationPresenter : RegistrationContract.RegistrationPresenter {
         gender: String,
         phone_no: String
     ) {
-        apiService = RetrofitClient.provideRetro().create(Api::class.java)
+        apiService = RetrofitClient.getInstance().getClient().create(Api::class.java)
         apiService.userRegistration(first_name, last_name, email, password, confirm_password, gender, phone_no)
             .enqueue(object : Callback<RegistrationResponse> {
                 override fun onResponse(call: Call<RegistrationResponse>, response: Response<RegistrationResponse>) {

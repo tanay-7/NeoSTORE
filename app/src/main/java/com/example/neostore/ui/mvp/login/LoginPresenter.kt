@@ -21,7 +21,7 @@ class LoginPresenter : LoginContract.LoginPresenter {
         // Api Call
 
         val userObserver: Observer<LoginResponse> = getLoginObserver()
-        apiService = RetrofitClient.provideRetro().create(Api::class.java)
+        apiService = RetrofitClient.getInstance().getClient().create(Api::class.java)
         apiService.userLogin(email, password)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())

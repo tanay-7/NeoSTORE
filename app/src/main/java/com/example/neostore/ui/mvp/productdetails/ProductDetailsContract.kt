@@ -8,7 +8,7 @@ interface ProductDetailsContract {
 
     interface ProductDetailsPresenter {
         fun getProductDetails(
-            product_id: String
+            product_id: Number
         )
     }
 }

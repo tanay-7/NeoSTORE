@@ -38,7 +38,7 @@ interface Api {
 
     @GET("products/getDetail")
     fun getProductDetails(
-        @Query("product_id") product_id: String
+        @Query("product_id") product_id: Number
     ): Observable<ProductDetailsResponse>
 }
 

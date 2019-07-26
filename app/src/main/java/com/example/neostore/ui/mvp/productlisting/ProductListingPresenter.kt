@@ -8,7 +8,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ProductListingPresenter(productListingView: ProductListingContract.ProductListingView, context: Context) :
+class ProductListingPresenter(productListingView: ProductListingContract.ProductListingView) :
     ProductListingContract.ProductListingPresenter {
 
     lateinit var apiService: Api
@@ -21,7 +21,7 @@ class ProductListingPresenter(productListingView: ProductListingContract.Product
 
     override fun getProductList(product_category_id: String, limit: String, page: String) {
         val productListingObserver: Observer<ProductListResponse> = getProductListingObserver()
-        apiService = RetrofitClient.provideRetro().create(Api::class.java)
+        apiService = RetrofitClient.getInstance().getClient().create(Api::class.java)
         apiService.getProductList(product_category_id, limit, page)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())

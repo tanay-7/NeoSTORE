@@ -27,14 +27,17 @@ class RetrofitClient private constructor() {
         }
     }
 
-    private fun buildRetrofit(): Api {
+    private fun buildRetrofit(): Retrofit {
         retroClient = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .client(httpClient.build())
             .build()
+        return retroClient
+    }
 
-        return retroClient.create(Api::class.java)
+    internal fun getClient(): Retrofit {
+        return retroClient
     }
 }

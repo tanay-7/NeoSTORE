@@ -6,7 +6,7 @@ import com.example.neostore.ui.mvp.registration.RegistrationResponse
 
 class APIManager {
     fun login(email: String, password: String, callback: retrofit2.Callback<LoginResponse>) {
-        val apiClient = RetrofitClient.apiService.userLogin(email, password)
+        val apiClient = RetrofitClient.getInstance().getClient().create(Api::class.java).userLogin(email, password)
 //        apiClient.enqueue(callback)
     }
 
@@ -15,7 +15,7 @@ class APIManager {
         password: String, confirmPassword: String, gender: String,
         phoneNumber: String, callback: retrofit2.Callback<RegistrationResponse>
     ) {
-        val apiClient = RetrofitClient.apiService.userRegistration(
+        val apiClient = RetrofitClient.getInstance().getClient().create(Api::class.java).userRegistration(
             firstName,
             lastName,
             email,

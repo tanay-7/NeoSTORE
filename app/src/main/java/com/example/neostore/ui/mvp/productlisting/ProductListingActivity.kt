@@ -28,7 +28,7 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
     override fun init() {
         onBackClick()
         setMyActionBar()
-        productListingPresenter = ProductListingPresenter(this, this)
+        productListingPresenter = ProductListingPresenter(this)
         val productId = intent.extras?.get("product_id").toString()
         setToolbarTitle(productId)
         initLoader()
@@ -117,5 +117,6 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
         var currProductId = productList[position].id
         val intent = Intent(this, ProductDetailsActivity::class.java)
         intent.putExtra("product_id", currProductId)
+        startActivity(intent)
     }
 }

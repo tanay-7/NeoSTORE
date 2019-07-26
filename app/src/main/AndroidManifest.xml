@@ -18,13 +18,14 @@
         </activity>
         <activity
                 android:name=".ui.homescreen.HomeScreenActivity"
-                android:label="@string/title_activity_navigation_drawer"/>
-        <activity android:name=".StartupSplashActivity">
+                android:label="@string/title_activity_navigation_drawer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".StartupSplashActivity">
         </activity>
         <activity android:name=".ui.mvp.login.LoginActivity"/>
         <activity android:name=".ui.mvp.registration.RegistrationActivity"/>
