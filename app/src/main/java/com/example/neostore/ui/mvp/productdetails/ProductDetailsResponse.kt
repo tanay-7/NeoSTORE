@@ -7,37 +7,37 @@ import com.google.gson.annotations.SerializedName
 class ProductDetailsData {
     @SerializedName("id")
     @Expose
-    val id: Int? = null
+    var id: Int? = null
     @SerializedName("product_category_id")
     @Expose
-    val productCategoryId: Int? = null
+    var productCategoryId: Int? = null
     @SerializedName("name")
     @Expose
-    val name: String? = null
+    var name: String? = null
     @SerializedName("producer")
     @Expose
-    val producer: String? = null
+    var producer: String? = null
     @SerializedName("description")
     @Expose
-    val description: String? = null
+    var description: String? = null
     @SerializedName("cost")
     @Expose
-    val cost: Int? = null
+    var cost: Int? = null
     @SerializedName("rating")
     @Expose
-    val rating: Int? = null
+    var rating: Int? = null
     @SerializedName("view_count")
     @Expose
-    val viewCount: Int? = null
+    var viewCount: Int? = null
     @SerializedName("created")
     @Expose
-    val created: String? = null
+    var created: String? = null
     @SerializedName("modified")
     @Expose
-    val modified: String? = null
+    var modified: String? = null
     @SerializedName("product_images")
     @Expose
-    val productImages: List<ProductDetailsImages>? = null
+    var productImages: List<ProductDetailsImages>? = null
 }
 
 class ProductDetailsResponse {

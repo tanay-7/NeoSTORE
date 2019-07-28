@@ -4,12 +4,10 @@ import android.content.Intent
 import android.support.design.widget.NavigationView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.neostore.R
 import com.example.neostore.extensions.goneView
-import com.example.neostore.extensions.onClick
 import com.example.neostore.extensions.showView
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.productdetails.ProductDetailsActivity
@@ -20,17 +18,17 @@ import kotlinx.android.synthetic.main.spinner_layout.*
 class ProductListingActivity : BaseActivity(), ProductListingContract.ProductListingView,
     NavigationView.OnNavigationItemSelectedListener, OnProductClickListener {
 
-    lateinit var toolbarProductListings: Toolbar
+    //lateinit var toolbarProductListings: Toolbar
     override var getLayout = R.layout.activity_product_listing
     lateinit var productListingPresenter: ProductListingPresenter   //Presenter
     lateinit var productList: ArrayList<ProductListData>
 
     override fun init() {
-        onBackClick()
-        setMyActionBar()
         productListingPresenter = ProductListingPresenter(this)
         val productId = intent.extras?.get("product_id").toString()
+        setMyActionBar()
         setToolbarTitle(productId)
+        onToolbarBackClick()
         initLoader()
         spin_kit.showView()
         productListingPresenter.getProductList(productId, "10", "1")//API Call
@@ -83,26 +81,26 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
         recyclerViewOnScrollListener()
     }
 
-    private fun setMyActionBar() {
+    /*private fun setMyActionBar() {
         toolbarProductListings = customToolbar.toolbar_product_listings
         setSupportActionBar(toolbarProductListings)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-    }
+    }*/
 
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_icon_menu, menu)
         return true
     }*/
 
-    override fun showProductSuccess(response: ProductListResponse) {
-        setRecyclerView(response.data)
-        spin_kit.goneView()
-    }
-
-    private fun onBackClick() {
+    /*private fun onToolbarBackClick() {
         customToolbar.img_back_button.onClick {
             finish()
         }
+    }*/
+
+    override fun showProductSuccess(response: ProductListResponse) {
+        setRecyclerView(response.data)
+        spin_kit.goneView()
     }
 
     override fun showProductError(err_message: String) {

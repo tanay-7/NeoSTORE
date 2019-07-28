@@ -41,7 +41,11 @@ class ProductListingAdapter(
         p0.tvProductSubtitle.text = items!![p1].producer
 
         //Bind Price
-        p0.tvProductPrice.text = items!![p1].cost.toString()
+        p0.tvProductPrice.text = "Rs." + when (items!![p1].cost.toString().length) {
+            4 -> StringBuilder(items!![p1].cost.toString()).insert(1, ",")
+            5 -> StringBuilder(items!![p1].cost.toString()).insert(2, ",")
+            else -> ""
+        }
 
         //Bind Image
         Picasso.with(context).load(items!![p1].product_images).into(p0.ivProductImage)
@@ -66,7 +70,7 @@ class ProductListingViewHolder(view: View, onProductClickListener: OnProductClic
     val tvProductTitle = view.txt_product_title
     val tvProductSubtitle = view.txt_product_subtitle
     val ivProductImage = view.iv_product
-    val tvProductPrice = view.txt_product_price
+    val tvProductPrice = view.tv_product_price
     val rbProductRating = view.rb_product_rating
 
     override fun onClick(v: View?) {
