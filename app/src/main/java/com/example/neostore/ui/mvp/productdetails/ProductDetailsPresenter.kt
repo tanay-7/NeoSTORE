@@ -39,7 +39,7 @@ class ProductDetailsPresenter(val productDetailsView: ProductDetailsContract.Pro
             }
 
             override fun onError(e: Throwable) {
-                d("errorrrr",e.message)
+                d("errorrrr", e.message)
             }
         }
     }

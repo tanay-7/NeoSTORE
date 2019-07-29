@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/nav_header"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@color/colorMatteBlack"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            android:id="@+id/nav_header"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@color/colorMatteBlack"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/circular_image"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/ic_username"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp" />
+                                                      android:id="@+id/circular_image"
+                                                      android:layout_width="56dp"
+                                                      android:layout_height="56dp"
+                                                      android:layout_gravity="center"
+                                                      android:layout_marginTop="80dp"
+                                                      android:src="@drawable/ic_username"
+                                                      app:civ_border_color="#FFFFFF"
+                                                      app:civ_border_width="2dp"/>
 
         <TextView
-            android:id="@+id/nav_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gotham"
-            android:gravity="center"
-            android:paddingTop="8dp"
-            android:text="Tanay Kulkarni"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/color_white"
-            android:textSize="20dp" />
+                android:id="@+id/nav_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gotham"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:text="Tanay Kulkarni"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/color_white"
+                android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/nav_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gotham"
-            android:gravity="center"
-            android:paddingTop="4dp"
-            android:text="tanay.kulkarni@gmail.com"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/color_white"
-            android:textSize="16dp" />
+                android:id="@+id/nav_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gotham"
+                android:gravity="center"
+                android:paddingTop="4dp"
+                android:text="tanay.kulkarni@gmail.com"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/color_white"
+                android:textSize="16dp"/>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_menuitem"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nav_header"
-        tools:listitem="@layout/item_drawer"></android.support.v7.widget.RecyclerView>
+            android:id="@+id/rv_menuitem"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nav_header"
+            tools:listitem="@layout/item_drawer"></android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,13 +1,12 @@
 package com.example.neostore.ui.mvp.login
 
 import android.content.Intent
-import com.example.neostore.ui.homescreen.HomeScreenActivity
-import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.R
-import com.example.neostore.extensions.goneView
-import com.example.neostore.ui.mvp.registration.RegistrationActivity
 import com.example.neostore.extensions.onClick
 import com.example.neostore.extensions.showView
+import com.example.neostore.ui.base.BaseActivity
+import com.example.neostore.ui.homescreen.HomeScreenActivity
+import com.example.neostore.ui.mvp.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.spinner_layout.*
 

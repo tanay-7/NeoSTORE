@@ -8,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.neostore.R
-
-import java.util.ArrayList
+import java.util.*
 
 class SlidingImageAdapter(private val context: Context, private val imageModelArraylist: ArrayList<ImageModel>) :
     PagerAdapter() {

@@ -34,7 +34,7 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
         onCreate(db)
     }
 
-    fun insertData(obj: ProductDetailsData) {
+    fun insertData(obj: ProductDetailsData): String? {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put("PRODUCT_ID", obj.id)
@@ -43,7 +43,17 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
         contentValues.put("PRODUCT_PRODUCER", obj.producer)
         contentValues.put("PRODUCT_DESCRIPTION", obj.description)
         contentValues.put("PRODUCT_RATING", obj.rating)
-        db.insert(TABLE_NAME, null, contentValues)
+        return try {
+            val result = db.insertOrThrow(TABLE_NAME, null, contentValues)
+            if (result == (-1).toLong()) {
+                "Unsuccessful"
+            } else {
+                "Success"
+            }
+        } catch (e: android.database.sqlite.SQLiteConstraintException) {
+            e.message
+        }
+        return ""
     }
 
     fun retrieveData(): ArrayList<ProductDetailsData> {

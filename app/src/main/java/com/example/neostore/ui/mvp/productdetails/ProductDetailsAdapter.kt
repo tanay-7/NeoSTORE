@@ -1,6 +1,7 @@
 package com.example.neostore.ui.mvp.productdetails
 
 import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -30,10 +31,18 @@ class ProductDetailsAdapter(
     inner class ProductDetailsViewHolder(var itemViews: View) : RecyclerView.ViewHolder(itemViews) {
         fun bind() {
             val imageListner = itemViews.findViewById<ImageView>(R.id.iv_item_product_img)
+            var isSelected = false
             Picasso.with(context).load(items!![adapterPosition].image).into(imageListner)
 
             imageListner.setOnClickListener {
                 listner.onImageClick(adapterPosition)
+                if (!isSelected) {
+                    it.background =
+                        ContextCompat.getDrawable(context, R.drawable.rounded_button_box_red)
+                    isSelected = true
+                } else {
+                    it.background = null
+                }
             }
         }
     }

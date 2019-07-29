@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.neostore.R
+import com.example.neostore.extensions.bindComma
+import com.example.neostore.extensions.bindRs
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_product_listing.view.*
 
@@ -41,11 +43,7 @@ class ProductListingAdapter(
         p0.tvProductSubtitle.text = items!![p1].producer
 
         //Bind Price
-        p0.tvProductPrice.text = "Rs." + when (items!![p1].cost.toString().length) {
-            4 -> StringBuilder(items!![p1].cost.toString()).insert(1, ",")
-            5 -> StringBuilder(items!![p1].cost.toString()).insert(2, ",")
-            else -> ""
-        }
+        p0.tvProductPrice.text = StringBuilder(items!![p1].cost.toString()).bindComma().bindRs()
 
         //Bind Image
         Picasso.with(context).load(items!![p1].product_images).into(p0.ivProductImage)

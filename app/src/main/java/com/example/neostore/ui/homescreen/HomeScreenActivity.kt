@@ -3,29 +3,29 @@ package com.example.neostore.ui.homescreen
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
-import android.view.MenuItem
-import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
+import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import com.example.neostore.R
+import com.example.neostore.extensions.onClick
 import com.example.neostore.models.DrawerModel
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.login.LoginActivity
 import com.example.neostore.ui.mvp.productlisting.ProductListingActivity
-import com.example.neostore.extensions.onClick
+import com.viewpagerindicator.CirclePageIndicator
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.content_navigation_drawer.*
 import java.util.*
 import kotlin.collections.ArrayList
-import com.viewpagerindicator.CirclePageIndicator
-import kotlinx.android.synthetic.main.content_navigation_drawer.*
 
 class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, OnMenuItemListener {
     override var getLayout = R.layout.activity_navigation_drawer

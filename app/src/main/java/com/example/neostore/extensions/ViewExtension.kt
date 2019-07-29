@@ -17,3 +17,17 @@ fun View.goneView() {
 fun View.showView() {
     this.visibility = View.VISIBLE
 }
+
+fun StringBuilder.bindRs(): StringBuilder {
+    return this.insert(0, "Rs.")
+}
+
+fun StringBuilder.bindComma(): StringBuilder {
+    return when (this.length) {
+        4 -> this.insert(1, ",")
+        5 -> this.insert(2, ",")
+        else -> this.insert(0, "")
+    }
+
+}
+

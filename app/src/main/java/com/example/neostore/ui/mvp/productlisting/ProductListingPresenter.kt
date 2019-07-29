@@ -1,6 +1,5 @@
 package com.example.neostore.ui.mvp.productlisting
 
-import android.content.Context
 import com.example.neostore.network.Api
 import com.example.neostore.network.RetrofitClient
 import io.reactivex.Observer

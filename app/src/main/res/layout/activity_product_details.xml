@@ -85,26 +85,27 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_shop_name"
     />
 
-    <ScrollView android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@color/color_grey"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/gl_bottom"
-                app:layout_constraintTop_toBottomOf="@id/gl_top"
+    <android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
+                                                android:layout_height="0dp"
+                                                android:background="@color/color_grey"
+                                                app:layout_constraintLeft_toLeftOf="parent"
+                                                app:layout_constraintRight_toRightOf="parent"
+                                                app:layout_constraintBottom_toTopOf="@id/gl_bottom"
+                                                app:layout_constraintTop_toBottomOf="@id/gl_top"
     >
 
-        <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
-                                                     android:layout_height="0dp"
-                                                     android:layout_margin="@dimen/activity_horizontal_margin"
-                                                     android:background="@color/color_white"
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:background="@color/color_white"
         >
 
             <TextView
                     android:id="@+id/tv_product_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rs. 27,399"
+                    android:text="Rs.27,399"
                     android:fontFamily="@font/gotham"
                     android:textSize="24sp"
                     android:textColor="@color/color_red"
@@ -175,7 +176,7 @@
             <TextView
                     android:id="@+id/tv_description_body"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:fontFamily="@font/gotham"
                     android:textSize="16sp"
@@ -188,11 +189,12 @@
                     android:layout_marginTop="4dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_description"/>
+                    app:layout_constraintTop_toBottomOf="@id/tv_description"
+            />
 
         </android.support.constraint.ConstraintLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <Button
             android:id="@+id/btn_buy_now"
