@@ -1,5 +1,7 @@
 package com.example.neostore.ui.mvp.productdetails
 
+import android.app.AlertDialog
+import android.os.Build
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -18,6 +20,7 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
     lateinit var productDetailsList: List<ProductDetailsImages>
     lateinit var productDetailsPresenter: ProductDetailsPresenter //Presenter
     var helper = DBHandlerProductDetails(this)
+    private lateinit var alertDialog: AlertDialog.Builder
 
     override fun init() {
         setMyActionBar()
@@ -42,11 +45,27 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
             var insertSuccess = helper.insertData(obj)
             if (insertSuccess == "Success") {
                 makeToast("Item Added Successfully")
+                initDialog()
             } else {
                 makeToast("Item Already Exists")
             }
+
         }
         Log.e("SqlData: ", helper.retrieveData().toString())
+    }
+
+    private fun initDialog() {
+        alertDialog = AlertDialog.Builder(this)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            alertDialog.setView(R.layout.custom_popup)
+        }
+        alertDialog.show()
+
+        /*tv_close.setOnClickListener(object:DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                dialog?.dismiss()
+            }
+        })*/
     }
 
     private fun setRecyclerView(productDetailsImageList: List<ProductDetailsImages>) {
