@@ -40,5 +40,10 @@ interface Api {
     fun getProductDetails(
         @Query("product_id") product_id: Number
     ): Observable<ProductDetailsResponse>
+
+    @GET("cart")
+    fun getCartList(
+
+    )
 }
 

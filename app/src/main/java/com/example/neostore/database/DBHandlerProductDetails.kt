@@ -23,7 +23,8 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
                     "PRODUCT_PRICE INTEGER," +
                     "PRODUCT_PRODUCER TEXT," +
                     "PRODUCT_DESCRIPTION," +
-                    "PRODUCT_RATING TEXT)"
+                    "PRODUCT_RATING TEXT," +
+                    "PRODUCT_IMAGE TEXT)"
         )
     }
 
@@ -43,6 +44,7 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
         contentValues.put("PRODUCT_PRODUCER", obj.producer)
         contentValues.put("PRODUCT_DESCRIPTION", obj.description)
         contentValues.put("PRODUCT_RATING", obj.rating)
+        contentValues.put("PRODUCT_IMAGE", obj.created)
         return try {
             val result = db.insertOrThrow(TABLE_NAME, null, contentValues)
             if (result == (-1).toLong()) {
@@ -53,7 +55,6 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
         } catch (e: android.database.sqlite.SQLiteConstraintException) {
             e.message
         }
-        return ""
     }
 
     fun retrieveData(): ArrayList<ProductDetailsData> {
@@ -66,7 +67,8 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
                 "PRODUCT_PRICE",
                 "PRODUCT_PRODUCER",
                 "PRODUCT_DESCRIPTION",
-                "PRODUCT_RATING"
+                "PRODUCT_RATING",
+                "PRODUCT_IMAGE"
             ),
             null,
             null,
@@ -85,6 +87,7 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
                         val productProducer: String = cursor.getString(cursor.getColumnIndex("PRODUCT_PRODUCER"))
                         val productDescription: String = cursor.getString(cursor.getColumnIndex("PRODUCT_DESCRIPTION"))
                         val productRating: String = cursor.getString(cursor.getColumnIndex("PRODUCT_RATING"))
+                        val productImage: String = cursor.getString(cursor.getColumnIndex("PRODUCT_IMAGE"))
                         var productObject = ProductDetailsData()
                         productObject.id = productId
                         productObject.name = productName
@@ -92,6 +95,7 @@ class DBHandlerProductDetails(context: Context) : SQLiteOpenHelper(context, DATA
                         productObject.producer = productProducer
                         productObject.description = productDescription
                         productObject.rating = Integer.valueOf(productRating)
+                        productObject.created = productImage
                         productList.add(productObject)
                     } while ((cursor.moveToNext()))
                 }

@@ -2,9 +2,11 @@ package com.example.neostore.ui.mvp.productdetails
 
 import android.app.AlertDialog
 import android.os.Build
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.example.neostore.R
 import com.example.neostore.database.DBHandlerProductDetails
 import com.example.neostore.extensions.bindComma
@@ -21,6 +23,7 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
     lateinit var productDetailsPresenter: ProductDetailsPresenter //Presenter
     var helper = DBHandlerProductDetails(this)
     private lateinit var alertDialog: AlertDialog.Builder
+    private lateinit var currSelectedImage: String
 
     override fun init() {
         setMyActionBar()
@@ -30,11 +33,11 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
         //initLoader()
         //spin_kit.showView()
         productDetailsPresenter.getProductDetails(productId)
-        onBuyNowBtnClick()
+        onAddToCartBtnClick()
     }
 
-    private fun onBuyNowBtnClick() {
-        btn_buy_now.onClick {
+    private fun onAddToCartBtnClick() {
+        btn_add_to_cart.onClick {
             var obj = ProductDetailsData()
             obj.id = productId as Int
             obj.name = tv_product_title.text.toString()
@@ -42,6 +45,7 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
             obj.producer = tv_shop_name.text.toString()
             obj.description = tv_description_body.text.toString()
             obj.rating = rb_product_rating.progress
+            obj.created = currSelectedImage
             var insertSuccess = helper.insertData(obj)
             if (insertSuccess == "Success") {
                 makeToast("Item Added Successfully")
@@ -49,9 +53,19 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
             } else {
                 makeToast("Item Already Exists")
             }
-
+            onChangeToBuyNow()
         }
-        Log.e("SqlData: ", helper.retrieveData().toString())
+    }
+
+    private fun onChangeToBuyNow() {
+        YoYo.with(Techniques.FlipInX)
+            .duration(1000)
+            .repeat(1)
+            .playOn(btn_add_to_cart)
+        btn_add_to_cart.text = "BUY NOW"
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            btn_add_to_cart.backgroundTintList = ContextCompat.getColorStateList(this, R.color.color_red)
+        }
     }
 
     private fun initDialog() {
@@ -60,12 +74,6 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
             alertDialog.setView(R.layout.custom_popup)
         }
         alertDialog.show()
-
-        /*tv_close.setOnClickListener(object:DialogInterface.OnClickListener {
-            override fun onClick(dialog: DialogInterface?, which: Int) {
-                dialog?.dismiss()
-            }
-        })*/
     }
 
     private fun setRecyclerView(productDetailsImageList: List<ProductDetailsImages>) {
@@ -84,6 +92,7 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
     }
 
     private fun setResponseToProduct(detailsData: ProductDetailsData) {
+        currSelectedImage = productDetailsList[0].image!!
         Picasso.with(this).load(productDetailsList[0].image).into(iv_product)
         tv_product_title.text = detailsData.name
         tv_product_category.text = when (detailsData.productCategoryId) {
@@ -105,5 +114,6 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
 
     override fun onImageClick(position: Int) {
         Picasso.with(this).load(productDetailsList[position].image).into(iv_product)
+        currSelectedImage = productDetailsList[position].image!!
     }
 }

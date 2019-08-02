@@ -59,7 +59,7 @@ class ProductDetailsImages {
     val productId: Int? = null
     @SerializedName("image")
     @Expose
-    val image: String? = null
+    var image: String? = null
     @SerializedName("created")
     @Expose
     val created: String? = null
