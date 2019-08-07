@@ -1,6 +1,7 @@
 package com.example.neostore.extensions
 
 import android.view.View
+import com.example.neostore.R
 
 fun View.onClick(block: (View) -> Unit) {
     this.setOnClickListener { view -> block(view) }
@@ -28,6 +29,8 @@ fun StringBuilder.bindComma(): StringBuilder {
         5 -> this.insert(2, ",")
         else -> this.insert(0, "")
     }
-
 }
 
+fun StringBuilder.bindRupeeSign(): StringBuilder {
+    return this.insert(0, R.string.rupee_sign)
+}

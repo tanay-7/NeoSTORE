@@ -1,6 +1,7 @@
 package com.example.neostore.ui.mvp.productdetails
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Build
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
@@ -13,8 +14,10 @@ import com.example.neostore.extensions.bindComma
 import com.example.neostore.extensions.bindRs
 import com.example.neostore.extensions.onClick
 import com.example.neostore.ui.base.BaseActivity
+import com.example.neostore.ui.mvvm.mycart.MyCartActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_details.*
+import kotlinx.android.synthetic.main.custom_toolbar.*
 
 class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDetailsView, OnImageClickListener {
     override var getLayout = R.layout.activity_product_details
@@ -24,6 +27,7 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
     var helper = DBHandlerProductDetails(this)
     private lateinit var alertDialog: AlertDialog.Builder
     private lateinit var currSelectedImage: String
+    private lateinit var productResponse: ProductDetailsData
 
     override fun init() {
         setMyActionBar()
@@ -42,6 +46,7 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
             obj.id = productId as Int
             obj.name = tv_product_title.text.toString()
             obj.cost = 0//Integer.valueOf(tv_product_price.text.toString())
+            obj.productCategoryId = productResponse.productCategoryId
             obj.producer = tv_shop_name.text.toString()
             obj.description = tv_description_body.text.toString()
             obj.rating = rb_product_rating.progress
@@ -49,7 +54,9 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
             var insertSuccess = helper.insertData(obj)
             if (insertSuccess == "Success") {
                 makeToast("Item Added Successfully")
-                initDialog()
+                val intent = Intent(this, MyCartActivity::class.java)
+                startActivity(intent)
+                //initDialog()
             } else {
                 makeToast("Item Already Exists")
             }
@@ -88,7 +95,14 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
     override fun showProductDetailsSuccess(response: ProductDetailsResponse) {
         setRecyclerView(response.data!!.productImages!!)
         setResponseToProduct(response.data)
+        productResponse = response.data
+        toolbarSetting(response.data.name)
         //spin_kit.goneView()
+    }
+
+    private fun toolbarSetting(name: String?) {
+        txt_product_toolbar.text = name
+        onToolbarBackClick()
     }
 
     private fun setResponseToProduct(detailsData: ProductDetailsData) {

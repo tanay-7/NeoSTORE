@@ -12,13 +12,12 @@ import com.example.neostore.extensions.showView
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.productdetails.ProductDetailsActivity
 import kotlinx.android.synthetic.main.activity_product_listing.*
-import kotlinx.android.synthetic.main.custom_toolbar.view.*
+import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.android.synthetic.main.spinner_layout.*
 
 class ProductListingActivity : BaseActivity(), ProductListingContract.ProductListingView,
     NavigationView.OnNavigationItemSelectedListener, OnProductClickListener {
 
-    //lateinit var toolbarProductListings: Toolbar
     override var getLayout = R.layout.activity_product_listing
     lateinit var productListingPresenter: ProductListingPresenter   //Presenter
     lateinit var productList: ArrayList<ProductListData>
@@ -45,8 +44,7 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
                     this@ProductListingActivity,
                     "${lastItemOnScreen + 1} OF $totalItemCount",
                     Toast.LENGTH_SHORT
-                )
-                    .show()
+                ).show()
 
                 //Custom Toast: Getting the View object as defined in the customtoast.xml file
                 /*val customToastLayout: View =
@@ -66,9 +64,9 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
 
     private fun setToolbarTitle(productId: String) {
         when (productId) {
-            "2" -> customToolbar.txt_product_toolbar.text = "Chairs"
-            "3" -> customToolbar.txt_product_toolbar.text = "Sofas"
-            "4" -> customToolbar.txt_product_toolbar.text = "Cupboards"
+            "2" -> txt_product_toolbar.text = "Chairs"
+            "3" -> txt_product_toolbar.text = "Sofas"
+            "4" -> txt_product_toolbar.text = "Cupboards"
         }
     }
 

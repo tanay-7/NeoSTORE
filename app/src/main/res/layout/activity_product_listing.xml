@@ -7,7 +7,13 @@
                                              android:layout_height="match_parent"
                                              tools:context=".ui.mvp.productlisting.ProductListingActivity">
     <include
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
             layout="@layout/custom_toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rv_product_listing"
     />
 
     <android.support.v7.widget.RecyclerView

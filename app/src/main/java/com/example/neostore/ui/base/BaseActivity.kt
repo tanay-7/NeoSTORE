@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.example.neostore.R
 import com.example.neostore.extensions.onClick
 import com.github.ybq.android.spinkit.style.ChasingDots
+import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
@@ -42,7 +43,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     fun onToolbarBackClick() {
-        customToolbar.img_back_button.onClick {
+        iv_back_button.onClick {
             finish()
         }
     }
