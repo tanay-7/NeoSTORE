@@ -1,7 +1,6 @@
 package com.example.neostore.ui.base
 
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
@@ -11,7 +10,6 @@ import com.example.neostore.R
 import com.example.neostore.extensions.onClick
 import com.github.ybq.android.spinkit.style.ChasingDots
 import kotlinx.android.synthetic.main.custom_toolbar.*
-import kotlinx.android.synthetic.main.custom_toolbar.view.*
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
     lateinit var customToolbar: View
@@ -34,11 +32,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     fun setMyActionBar() {
-        customToolbar = layoutInflater.inflate(
+        /*customToolbar = layoutInflater.inflate(
             R.layout.custom_toolbar, null
         ) as ConstraintLayout
-        toolbarProduct = customToolbar.toolbar_product_listings
-        setSupportActionBar(toolbarProduct)
+        toolbarProduct = customToolbar.toolbar_product_listings*/
+        setSupportActionBar(toolbar_product_listings)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 

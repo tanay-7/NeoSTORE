@@ -29,10 +29,9 @@ import kotlin.collections.ArrayList
 
 class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, OnMenuItemListener {
     override var getLayout = R.layout.activity_navigation_drawer
-
     internal lateinit var viewPager: ViewPager
-
     private var imageModelArrayList: ArrayList<ImageModel>? = null
+
     private val myimagelist =
         intArrayOf(R.drawable.slider_img1, R.drawable.slider_img2, R.drawable.slider_img3, R.drawable.slider_img4)
     val menu: ArrayList<DrawerModel> = ArrayList()
@@ -40,7 +39,6 @@ class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelect
     override fun init() {
         val toolbar: Toolbar = toolbar
         setSupportActionBar(toolbar)
-
         val action_bar = supportActionBar
         action_bar!!.setDisplayShowTitleEnabled(false)
 

@@ -4,7 +4,10 @@ import android.content.Intent
 import android.support.design.widget.NavigationView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.SearchView
+import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import com.example.neostore.R
 import com.example.neostore.extensions.goneView
@@ -21,6 +24,7 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
     override var getLayout = R.layout.activity_product_listing
     lateinit var productListingPresenter: ProductListingPresenter   //Presenter
     lateinit var productList: ArrayList<ProductListData>
+    private lateinit var productAdapter: ProductListingAdapter
 
     override fun init() {
         productListingPresenter = ProductListingPresenter(this)
@@ -74,27 +78,37 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
         productList = productListDataList
         val rvProductListing = findViewById<RecyclerView>(R.id.rv_product_listing) //Recycler
         rvProductListing.layoutManager = LinearLayoutManager(this)// Creates a vertical Layout Manager
-        val productAdapter = ProductListingAdapter(productListDataList, this@ProductListingActivity, this)
+        productAdapter = ProductListingAdapter(productListDataList, this@ProductListingActivity, this)
         rvProductListing.adapter = productAdapter
         recyclerViewOnScrollListener()
     }
 
-    /*private fun setMyActionBar() {
+    /*private fun setActionBar() {
         toolbarProductListings = customToolbar.toolbar_product_listings
-        setSupportActionBar(toolbarProductListings)
+        setSupportActionBar(toolbar_product_listings)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }*/
 
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_icon_menu, menu)
-        return true
-    }*/
+        val searchItem = menu!!.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
 
-    /*private fun onToolbarBackClick() {
-        customToolbar.img_back_button.onClick {
-            finish()
-        }
-    }*/
+        //To remove search icon from keypad and It will transform magnifying button of keypad to check button.
+        searchView.imeOptions = EditorInfo.IME_ACTION_DONE
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                productAdapter.filter.filter(newText)
+                return false
+            }
+        })
+        return true
+    }
 
     override fun showProductSuccess(response: ProductListResponse) {
         setRecyclerView(response.data)
@@ -110,7 +124,7 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
     }
 
     override fun onProductClick(position: Int) {
-        var currProductId = productList[position].id
+        val currProductId = productList[position].id
         val intent = Intent(this, ProductDetailsActivity::class.java)
         intent.putExtra("product_id", currProductId)
         startActivity(intent)
