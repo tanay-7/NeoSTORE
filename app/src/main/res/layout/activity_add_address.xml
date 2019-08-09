@@ -22,8 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="ADDRESS"
-            android:textSize="20sp"
-            android:fontFamily="@font/gotham"
+            style="@style/add_address_screen_textview"
             app:layout_constraintTop_toBottomOf="@id/custom_toolbar_add_address"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="32dp"
@@ -33,9 +32,11 @@
     <EditText
             android:id="@+id/et_address"
             android:layout_width="0dp"
-            android:layout_height="140dp"
+            android:layout_height="120dp"
             android:background="@color/color_white"
-            android:text="Green Valley, Nashik"
+            android:hint="Enter Address"
+            android:padding="4dp"
+            android:gravity="start"
             android:fontFamily="@font/gotham"
             android:inputType="textMultiLine"
             android:layout_margin="@dimen/activity_horizontal_margin"
@@ -44,14 +45,37 @@
             app:layout_constraintTop_toBottomOf="@id/tv_address"/>
 
     <TextView
+            android:id="@+id/tv_landmark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="LANDMARK"
+            style="@style/add_address_screen_textview"
+            app:layout_constraintTop_toBottomOf="@id/et_address"
+            app:layout_constraintStart_toStartOf="@id/et_address"
+            android:layout_marginTop="36dp"/>
+
+    <EditText
+            android:id="@+id/et_landmark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:hint="Enter Landmark"
+            android:padding="4dp"
+            android:fontFamily="@font/gotham"
+            app:layout_constraintStart_toStartOf="@id/tv_landmark"
+            app:layout_constraintTop_toBottomOf="@id/tv_landmark"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"/>
+
+    <TextView
             android:id="@+id/tv_city"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="CITY"
-            android:textSize="20sp"
-            android:fontFamily="@font/gotham"
-            app:layout_constraintTop_toBottomOf="@id/et_address"
-            app:layout_constraintStart_toStartOf="@id/et_address"
+            style="@style/add_address_screen_textview"
+            app:layout_constraintStart_toStartOf="@id/et_landmark"
+            app:layout_constraintTop_toBottomOf="@id/et_landmark"
             android:layout_marginTop="36dp"/>
 
     <EditText
@@ -59,12 +83,106 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/color_white"
-            android:text="Green Valley, Nashik"
+            android:hint="Enter City"
+            android:padding="4dp"
             android:fontFamily="@font/gotham"
             app:layout_constraintStart_toStartOf="@id/tv_city"
             app:layout_constraintTop_toBottomOf="@id/tv_city"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"/>
+            app:layout_constraintEnd_toStartOf="@id/gl_main"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
 
+    <TextView android:id="@+id/tv_state"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="STATE"
+              style="@style/add_address_screen_textview"
+              app:layout_constraintStart_toEndOf="@id/gl_main"
+              app:layout_constraintTop_toTopOf="@id/tv_city"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"/>
+
+    <EditText
+            android:id="@+id/et_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:fontFamily="@font/gotham"
+            android:hint="Enter State"
+            android:padding="4dp"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            app:layout_constraintStart_toStartOf="@id/tv_state"
+            app:layout_constraintTop_toBottomOf="@id/tv_state"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView android:id="@+id/tv_zipcode"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="ZIP CODE"
+              style="@style/add_address_screen_textview"
+              app:layout_constraintStart_toStartOf="@id/et_city"
+              app:layout_constraintTop_toBottomOf="@id/et_city"
+              android:layout_marginTop="36dp"/>
+
+    <EditText
+            android:id="@+id/et_zipcode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:hint="Enter Zip"
+            android:padding="4dp"
+            android:fontFamily="@font/gotham"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            app:layout_constraintStart_toStartOf="@id/tv_zipcode"
+            app:layout_constraintTop_toBottomOf="@id/tv_zipcode"
+            app:layout_constraintEnd_toEndOf="@id/gl_main"
+    />
+
+    <TextView android:id="@+id/tv_country"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="COUNTRY"
+              style="@style/add_address_screen_textview"
+              app:layout_constraintTop_toTopOf="@id/tv_zipcode"
+              app:layout_constraintStart_toEndOf="@id/gl_main"
+              app:layout_constraintStart_toStartOf="@id/et_state"/>
+
+    <EditText
+            android:id="@+id/et_country"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:hint="Enter Country"
+            android:padding="4dp"
+            android:fontFamily="@font/gotham"
+            app:layout_constraintStart_toStartOf="@id/tv_country"
+            app:layout_constraintTop_toBottomOf="@id/tv_country"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE ADDRESS"
+            android:textColor="@color/color_white"
+            android:fontFamily="@font/gotham"
+            android:textStyle="bold"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:background="@drawable/rounded_button_box_red"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_zipcode"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <android.support.constraint.Guideline
+            android:id="@+id/gl_main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+    />
 </android.support.constraint.ConstraintLayout>

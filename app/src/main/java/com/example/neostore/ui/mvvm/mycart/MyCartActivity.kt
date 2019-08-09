@@ -2,12 +2,15 @@ package com.example.neostore.ui.mvvm.mycart
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.LayoutManager
 import com.example.neostore.R
 import com.example.neostore.extensions.onClick
 import com.example.neostore.ui.base.BaseActivity
+import com.example.neostore.ui.mvvm.addaddress.AddAddressActivity
+import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.custom_toolbar.*
 
 class MyCartActivity : BaseActivity() {
@@ -25,6 +28,14 @@ class MyCartActivity : BaseActivity() {
             mAdapter.notifyDataSetChanged()
         })
         initRecyclerView()
+        onOrderNowClick()
+    }
+
+    private fun onOrderNowClick() {
+        btn_order_now.onClick {
+            val intent = Intent(this@MyCartActivity, AddAddressActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun toolbarSetting() {
