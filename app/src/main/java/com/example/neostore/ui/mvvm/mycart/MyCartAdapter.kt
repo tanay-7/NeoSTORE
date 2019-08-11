@@ -30,10 +30,10 @@ class MyCartAdapter(
 
     inner class MyCartViewHolder(var itemViews: View) : RecyclerView.ViewHolder(itemViews) {
         fun onBind() {
-            var productImage = itemViews.findViewById<ImageView>(R.id.iv_cart_product)
-            var productName = itemViews.findViewById<TextView>(R.id.tv_item_name)
-            var productCategory = itemViews.findViewById<TextView>(R.id.tv_item_category)
-            var productPrice = itemViews.findViewById<TextView>(R.id.tv_product_price)
+            val productImage = itemViews.findViewById<ImageView>(R.id.iv_cart_product)
+            val productName = itemViews.findViewById<TextView>(R.id.tv_item_name)
+            val productCategory = itemViews.findViewById<TextView>(R.id.tv_item_category)
+            val productPrice = itemViews.findViewById<TextView>(R.id.tv_product_price)
 
             Picasso.with(context).load(items!![adapterPosition].product_image).into(productImage)
             productName.text = items!![adapterPosition].product_name

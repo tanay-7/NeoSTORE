@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.neostore.R
-import com.example.neostore.models.DrawerModel
 import kotlinx.android.synthetic.main.item_drawer.view.*
 
 class DrawerAdapter(

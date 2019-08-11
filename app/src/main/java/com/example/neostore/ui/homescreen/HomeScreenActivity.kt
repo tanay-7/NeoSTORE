@@ -16,7 +16,6 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.neostore.R
 import com.example.neostore.extensions.onClick
-import com.example.neostore.models.DrawerModel
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.login.LoginActivity
 import com.example.neostore.ui.mvp.productlisting.ProductListingActivity

@@ -1,7 +1,8 @@
-package com.example.neostore
+package com.example.neostore.ui.startupsplash
 
 import android.content.Intent
 import android.os.Handler
+import com.example.neostore.R
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.login.LoginActivity
 

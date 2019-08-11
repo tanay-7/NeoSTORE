@@ -1,4 +1,4 @@
-package com.example.neostore.models
+package com.example.neostore.ui.homescreen
 
 data class DrawerModel(
     var menuItem: String,

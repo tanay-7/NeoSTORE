@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView.LayoutManager
 import com.example.neostore.R
 import com.example.neostore.extensions.onClick
 import com.example.neostore.ui.base.BaseActivity
-import com.example.neostore.ui.mvvm.addaddress.AddAddressActivity
+import com.example.neostore.ui.mvvm.address.AddAddressActivity
 import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.custom_toolbar.*
 

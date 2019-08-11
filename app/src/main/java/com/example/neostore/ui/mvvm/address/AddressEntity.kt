@@ -1,4 +1,4 @@
-package com.example.neostore.ui.mvvm.addaddress
+package com.example.neostore.ui.mvvm.address
 
 import android.arch.persistence.room.Entity
 
