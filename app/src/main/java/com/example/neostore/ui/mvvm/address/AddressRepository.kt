@@ -6,7 +6,7 @@ import android.os.AsyncTask
 
 class AddressRepository(application: Application) {
     private var addressDao: AddressDao
-    private var allAddresses: LiveData<ArrayList<AddressEntity>>
+    private var allAddresses: LiveData<List<AddressEntity>>
 
     init {
         val addressDatabase: AddressDatabase = AddressDatabase.getInstance(application)
@@ -26,7 +26,7 @@ class AddressRepository(application: Application) {
         DeleteAllAddressesAsyncTask(addressDao).execute()
     }
 
-    fun getAllAddress(): LiveData<ArrayList<AddressEntity>> {
+    fun getAllAddress(): LiveData<List<AddressEntity>> {
         return allAddresses
     }
 

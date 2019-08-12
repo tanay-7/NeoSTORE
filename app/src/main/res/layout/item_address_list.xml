@@ -2,9 +2,9 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+                                             android:layout_height="wrap_content">
 
-    <RadioButton
+    <!--<RadioButton
             android:id="@+id/rdbtn_address_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,19 +18,19 @@
             app:layout_constraintEnd_toStartOf="@id/card_address"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
-    />
+    />-->
 
     <android.support.design.card.MaterialCardView
             android:id="@+id/card_address"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            app:cardElevation="1dp"
+            app:cardElevation="4dp"
             app:cardCornerRadius="@dimen/activity_horizontal_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginTop="8dp">
 
         <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Customer Name"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:fontFamily="@font/gotham"
                     android:textColor="@color/colorBlack"
                     android:layout_margin="8dp"
@@ -54,7 +54,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:text="Address"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/gotham"
                     android:inputType="textMultiLine"
                     android:layout_marginRight="8dp"
@@ -66,12 +66,14 @@
                     app:layout_constraintEnd_toEndOf="parent"
             />
 
-            <ImageView android:layout_width="16dp"
-                       android:layout_height="16dp"
-                       android:src="@drawable/ic_close"
-                       app:layout_constraintEnd_toEndOf="parent"
-                       app:layout_constraintTop_toTopOf="parent"
-                       android:layout_margin="8dp"/>
+            <ImageView
+                    android:id="@+id/iv_close_item"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_close"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_margin="8dp"/>
 
         </android.support.constraint.ConstraintLayout>
     </android.support.design.card.MaterialCardView>

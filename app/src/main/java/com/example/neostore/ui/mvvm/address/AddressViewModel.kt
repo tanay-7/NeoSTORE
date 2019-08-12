@@ -6,8 +6,8 @@ import android.arch.lifecycle.LiveData
 import android.support.annotation.NonNull
 
 class AddressViewModel(@NonNull application: Application) : AndroidViewModel(application) {
-    private var mRepo: AddressRepository = AddressRepository(application)
-    private var allAddresses: LiveData<ArrayList<AddressEntity>>
+    private var mRepo: AddressRepository = AddressRepository(getApplication())
+    private var allAddresses: LiveData<List<AddressEntity>>
 
     init {
         allAddresses = mRepo.getAllAddress()
@@ -25,7 +25,7 @@ class AddressViewModel(@NonNull application: Application) : AndroidViewModel(app
         mRepo.deleteAllAddresses()
     }
 
-    fun getAllAddresses(): LiveData<ArrayList<AddressEntity>> {
+    fun getAllAddresses(): LiveData<List<AddressEntity>> {
         return allAddresses
     }
 }

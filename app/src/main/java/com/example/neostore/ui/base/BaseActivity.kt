@@ -32,10 +32,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     fun setMyActionBar() {
-        /*customToolbar = layoutInflater.inflate(
-            R.layout.custom_toolbar, null
-        ) as ConstraintLayout
-        toolbarProduct = customToolbar.toolbar_product_listings*/
         setSupportActionBar(toolbar_product_listings)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }

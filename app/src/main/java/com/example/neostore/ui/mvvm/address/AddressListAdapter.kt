@@ -8,7 +8,7 @@ import android.widget.TextView
 import com.example.neostore.R
 
 class AddressListAdapter : RecyclerView.Adapter<AddressListAdapter.AddressListViewHolder>() {
-    private lateinit var mItems: ArrayList<AddressEntity>
+    private lateinit var mItems: List<AddressEntity>
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): AddressListViewHolder {
         val root = LayoutInflater.from(p0.context).inflate(R.layout.item_address_list, p0, false)
@@ -23,9 +23,13 @@ class AddressListAdapter : RecyclerView.Adapter<AddressListAdapter.AddressListVi
         p0.onBind()
     }
 
-    fun setItems(mItems: ArrayList<AddressEntity>?) {
+    fun setItems(mItems: List<AddressEntity>?) {
         this.mItems = mItems!!
         notifyDataSetChanged()
+    }
+
+    fun getItem(position: Int): AddressEntity {
+        return mItems[position]
     }
 
     inner class AddressListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

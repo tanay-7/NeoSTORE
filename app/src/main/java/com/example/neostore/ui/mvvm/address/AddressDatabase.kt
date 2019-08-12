@@ -21,7 +21,7 @@ abstract class AddressDatabase : RoomDatabase() {
                 mInstance = Room.databaseBuilder(
                     context.applicationContext,
                     AddressDatabase::class.java,
-                    "address"
+                    "DB_Address.db"
                 )
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
@@ -47,23 +47,23 @@ abstract class AddressDatabase : RoomDatabase() {
             override fun doInBackground(vararg params: Unit?) {
                 addressDao.insert(
                     AddressEntity(
-                        "Green Valley, Devad",
-                        "D.D.Vispute College",
-                        "Panvel",
-                        "MH",
-                        "450000",
-                        "INDIA"
+                        address = "Green Valley, Devad",
+                        landmark = "D.D.Vispute College",
+                        city = "Panvel",
+                        state = "MH",
+                        zipCode = "450000",
+                        country = "INDIA"
                     )
                 )
 
                 addressDao.insert(
                     AddressEntity(
-                        "The Ruby",
-                        "Railway Station",
-                        "Dadar",
-                        "MH",
-                        "120000",
-                        "INDIA"
+                        address = "The Ruby",
+                        landmark = "Railway Station",
+                        city = "Dadar",
+                        state = "MH",
+                        zipCode = "120000",
+                        country = "INDIA"
                     )
                 )
             }

@@ -1,6 +1,5 @@
 package com.example.neostore.ui.mvvm.address
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import com.example.neostore.R
@@ -15,25 +14,27 @@ class AddAddressActivity : BaseActivity() {
 
     override fun init() {
         toolbarSetting()
-        //initViewModel()
         onSaveAddressBtnClick()
     }
 
     private fun onSaveAddressBtnClick() {
         btn_save_address.onClick {
+            val obj = AddressEntity(
+                address = et_address.text.toString(),
+                landmark = et_landmark.text.toString(),
+                city = et_city.text.toString(),
+                state = et_state.text.toString(),
+                country = et_country.text.toString(),
+                zipCode = et_zipcode.text.toString()
+            )
+
+            mAddressViewModel = ViewModelProviders.of(this).get(AddressViewModel::class.java)
+            //Inserting address to DB.
+            mAddressViewModel.insert(obj)
+
             val intent = Intent(this, AddressListActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    private fun initViewModel() {
-        //As we are providing this, The Android System will get to know that which lifecycle it has to scoped with.
-        //Android System will destroy the ViewModel when Activity is finished.
-        mAddressViewModel = ViewModelProviders.of(this).get(AddressViewModel::class.java)
-        mAddressViewModel.getAllAddresses().observe(this,
-            Observer<ArrayList<AddressEntity>> {
-                //Update RecyclerView.
-            })
     }
 
     private fun toolbarSetting() {

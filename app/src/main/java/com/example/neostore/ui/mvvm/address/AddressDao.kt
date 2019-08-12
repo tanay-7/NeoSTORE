@@ -17,6 +17,6 @@ interface AddressDao {
     @Query("DELETE FROM address_table")
     fun deleteAllAddresses()
 
-    @Query("SELECT ADDRESS,LANDMARK,CITY,STATE,ZIPCODE,COUNTRY FROM address_table")
-    fun getAllAddresses(): LiveData<ArrayList<AddressEntity>>
+    @Query("SELECT * FROM address_table")
+    fun getAllAddresses(): LiveData<List<AddressEntity>>
 }
