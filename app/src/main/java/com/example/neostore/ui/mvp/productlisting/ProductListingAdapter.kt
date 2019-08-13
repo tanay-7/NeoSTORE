@@ -1,8 +1,8 @@
 package com.example.neostore.ui.mvp.productlisting
 
 import android.content.Context
-import android.support.v7.widget.AppCompatRatingBar
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.widget.AppCompatRatingBar
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,12 +21,12 @@ class ProductListingAdapter(
     val context: Context,
     var onProductClickListener: OnProductClickListener
 ) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
+    androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>(), Filterable {
 
     var productClickListener: OnProductClickListener = onProductClickListener
     var itemsFull = ArrayList(items)
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val root = LayoutInflater.from(context).inflate(R.layout.item_product_listing, p0, false)
         return ProductListingViewHolder(root, productClickListener)
     }
@@ -35,7 +35,7 @@ class ProductListingAdapter(
         return items!!.size
     }
 
-    override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
+    override fun onBindViewHolder(p0: androidx.recyclerview.widget.RecyclerView.ViewHolder, p1: Int) {
         //Bind Title
         (p0 as ProductListingViewHolder).tvProductTitle.text =
             items!![p1].name    //Type-Casting of p0 to ProductListingViewHolder.
@@ -87,7 +87,7 @@ class ProductListingAdapter(
 }
 
 class ProductListingViewHolder(view: View, onProductClickListener: OnProductClickListener) :
-    RecyclerView.ViewHolder(view),
+    androidx.recyclerview.widget.RecyclerView.ViewHolder(view),
     View.OnClickListener {
 
     var onProductClickListener: OnProductClickListener = onProductClickListener

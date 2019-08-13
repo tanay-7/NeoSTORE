@@ -1,8 +1,8 @@
 package com.example.neostore.ui.mvp.productdetails
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ class ProductDetailsAdapter(
     var items: List<ProductDetailsImages>?,
     val context: Context,
     val listner: OnImageClickListener
-) : RecyclerView.Adapter<ProductDetailsAdapter.ProductDetailsViewHolder>() {
+) : androidx.recyclerview.widget.RecyclerView.Adapter<ProductDetailsAdapter.ProductDetailsViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductDetailsViewHolder {
         val root = LayoutInflater.from(context).inflate(R.layout.item_product_images, p0, false)
         return ProductDetailsViewHolder(root)
@@ -28,7 +28,7 @@ class ProductDetailsAdapter(
         p0.bind()
     }
 
-    inner class ProductDetailsViewHolder(var itemViews: View) : RecyclerView.ViewHolder(itemViews) {
+    inner class ProductDetailsViewHolder(var itemViews: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemViews) {
         fun bind() {
             val imageListner = itemViews.findViewById<ImageView>(R.id.iv_item_product_img)
             var isSelected = false

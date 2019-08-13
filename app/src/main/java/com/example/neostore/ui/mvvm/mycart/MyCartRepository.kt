@@ -1,7 +1,7 @@
 package com.example.neostore.ui.mvvm.mycart
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.neostore.database.DBHandlerProductDetails
 
 class MyCartRepository {

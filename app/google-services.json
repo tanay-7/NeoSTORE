@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "584846467820",
+    "firebase_url": "https://neostore-1db7d.firebaseio.com",
+    "project_id": "neostore-1db7d",
+    "storage_bucket": "neostore-1db7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584846467820:android:5f80fdbf4e64fa25",
+        "android_client_info": {
+          "package_name": "com.example.neostore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584846467820-5i59s818iejhqbkjv68a62inhphf3fua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.neostore",
+            "certificate_hash": "56556ab278abdc661fbbfbe56e4541d1217e7fa7"
+          }
+        },
+        {
+          "client_id": "584846467820-72dlfa246cq5nms1drie9mpt2ekr5f3c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcPypzUXG-BXNGtfW3kM-hnsdE5_b2H08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584846467820-72dlfa246cq5nms1drie9mpt2ekr5f3c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

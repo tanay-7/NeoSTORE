@@ -12,6 +12,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".ui.loginoptions.LoginOptionsActivity">
+        </activity>
         <activity android:name=".ui.mvvm.address.AddressListActivity">
         </activity>
         <activity android:name=".ui.mvvm.address.AddAddressActivity">
@@ -32,7 +34,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.startupsplash.StartupSplashActivity">
-
         </activity>
         <activity android:name=".ui.mvp.login.LoginActivity"/>
         <activity android:name=".ui.mvp.registration.RegistrationActivity"/>

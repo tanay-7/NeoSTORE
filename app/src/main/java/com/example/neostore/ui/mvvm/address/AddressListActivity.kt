@@ -1,12 +1,12 @@
 package com.example.neostore.ui.mvvm.address
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.graphics.Paint
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.view.Menu
 import android.view.MenuItem
 import com.example.neostore.R
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.custom_toolbar.*
 class AddressListActivity : BaseActivity() {
     override var getLayout = R.layout.activity_address_list
     private lateinit var mAddressViewModel: AddressViewModel
-    private lateinit var mRecyclerView: RecyclerView
+    private lateinit var mRecyclerView: androidx.recyclerview.widget.RecyclerView
     private lateinit var mAdapter: AddressListAdapter
     private val p = Paint()
 
@@ -36,7 +36,7 @@ class AddressListActivity : BaseActivity() {
 
     private fun initRecyclerView() {
         mRecyclerView = findViewById(R.id.rv_address_list)
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
+        mRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
     }
 
     private fun setRecyclerViewAdapter() {
@@ -57,11 +57,11 @@ class AddressListActivity : BaseActivity() {
             })
 
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-            override fun onMove(p0: RecyclerView, p1: RecyclerView.ViewHolder, p2: RecyclerView.ViewHolder): Boolean {
+            override fun onMove(p0: androidx.recyclerview.widget.RecyclerView, p1: androidx.recyclerview.widget.RecyclerView.ViewHolder, p2: androidx.recyclerview.widget.RecyclerView.ViewHolder): Boolean {
                 return false
             }
 
-            override fun onSwiped(p0: RecyclerView.ViewHolder, p1: Int) {
+            override fun onSwiped(p0: androidx.recyclerview.widget.RecyclerView.ViewHolder, p1: Int) {
                 mAddressViewModel.delete(mAdapter.getItem(p0.adapterPosition))
             }
 

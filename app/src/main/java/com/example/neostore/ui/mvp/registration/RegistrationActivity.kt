@@ -1,7 +1,7 @@
 package com.example.neostore.ui.mvp.registration
 
 import android.content.Intent
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import com.example.neostore.R
 import com.example.neostore.extensions.onClick
 import com.example.neostore.ui.base.BaseActivity

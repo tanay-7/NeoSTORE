@@ -1,9 +1,9 @@
 package com.example.neostore.ui.mvvm.address
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
-import android.support.annotation.NonNull
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.annotation.NonNull
 
 class AddressViewModel(@NonNull application: Application) : AndroidViewModel(application) {
     private var mRepo: AddressRepository = AddressRepository(getApplication())

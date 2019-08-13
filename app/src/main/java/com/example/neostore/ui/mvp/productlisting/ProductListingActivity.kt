@@ -1,10 +1,10 @@
 package com.example.neostore.ui.mvp.productlisting
 
 import android.content.Intent
-import android.support.design.widget.NavigationView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.SearchView
+import com.google.android.material.navigation.NavigationView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.EditorInfo
@@ -38,12 +38,12 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
     }
 
     private fun recyclerViewOnScrollListener() {
-        rv_product_listing.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+        rv_product_listing.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: androidx.recyclerview.widget.RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                val totalItemCount = (rv_product_listing.layoutManager as LinearLayoutManager).itemCount
+                val totalItemCount = (rv_product_listing.layoutManager as androidx.recyclerview.widget.LinearLayoutManager).itemCount
                 val lastItemOnScreen =
-                    (rv_product_listing.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
+                    (rv_product_listing.layoutManager as androidx.recyclerview.widget.LinearLayoutManager).findLastCompletelyVisibleItemPosition()
                 Toast.makeText(
                     this@ProductListingActivity,
                     "${lastItemOnScreen + 1} OF $totalItemCount",
@@ -76,8 +76,9 @@ class ProductListingActivity : BaseActivity(), ProductListingContract.ProductLis
 
     private fun setRecyclerView(productListDataList: ArrayList<ProductListData>) {
         productList = productListDataList
-        val rvProductListing = findViewById<RecyclerView>(R.id.rv_product_listing) //Recycler
-        rvProductListing.layoutManager = LinearLayoutManager(this)// Creates a vertical Layout Manager
+        val rvProductListing = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_product_listing) //Recycler
+        rvProductListing.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this)// Creates a vertical Layout Manager
         productAdapter = ProductListingAdapter(productListDataList, this@ProductListingActivity, this)
         rvProductListing.adapter = productAdapter
         recyclerViewOnScrollListener()

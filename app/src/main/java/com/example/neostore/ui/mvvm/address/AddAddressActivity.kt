@@ -1,6 +1,6 @@
 package com.example.neostore.ui.mvvm.address
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import com.example.neostore.R
 import com.example.neostore.extensions.onClick

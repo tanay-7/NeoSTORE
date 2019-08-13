@@ -1,7 +1,7 @@
 package com.example.neostore.ui.mvvm.address
 
 import android.app.Application
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.os.AsyncTask
 
 class AddressRepository(application: Application) {

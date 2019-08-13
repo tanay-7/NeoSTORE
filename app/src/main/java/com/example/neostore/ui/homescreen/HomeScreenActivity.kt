@@ -3,14 +3,14 @@ package com.example.neostore.ui.homescreen
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v4.view.ViewPager
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import com.google.android.material.navigation.NavigationView
+import androidx.core.view.GravityCompat
+import androidx.viewpager.widget.ViewPager
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -19,6 +19,7 @@ import com.example.neostore.extensions.onClick
 import com.example.neostore.ui.base.BaseActivity
 import com.example.neostore.ui.mvp.login.LoginActivity
 import com.example.neostore.ui.mvp.productlisting.ProductListingActivity
+import com.example.neostore.ui.mvvm.mycart.MyCartActivity
 import com.viewpagerindicator.CirclePageIndicator
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
@@ -52,10 +53,10 @@ class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelect
 
         nav_view.addView(drawerView)
 
-        var rvMenuitem = drawerView.findViewById<RecyclerView>(R.id.rv_menuitem)
+        var rvMenuitem = drawerView.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_menuitem)
 
         // Creates a vertical Layout Manager
-        rvMenuitem.layoutManager = LinearLayoutManager(this)
+        rvMenuitem.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
 
         // Access the RecyclerView Adapter and load the data into it
         rvMenuitem.adapter = DrawerAdapter(menu, this, this)
@@ -135,6 +136,11 @@ class HomeScreenActivity : BaseActivity(), NavigationView.OnNavigationItemSelect
         if (position == 8) {
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
+
+        if (position == 0) {
+            val intent = Intent(this, MyCartActivity::class.java)
             startActivity(intent)
         }
     }

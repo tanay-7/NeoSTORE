@@ -7,7 +7,7 @@
         android:orientation="vertical"
 >
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/toolbar_registration"
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                   style="@style/style_toolbar_registration"
         />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"

@@ -1,13 +1,13 @@
 package com.example.neostore.ui.mvvm.address
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.neostore.R
 
-class AddressListAdapter : RecyclerView.Adapter<AddressListAdapter.AddressListViewHolder>() {
+class AddressListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<AddressListAdapter.AddressListViewHolder>() {
     private lateinit var mItems: List<AddressEntity>
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): AddressListViewHolder {
@@ -32,7 +32,7 @@ class AddressListAdapter : RecyclerView.Adapter<AddressListAdapter.AddressListVi
         return mItems[position]
     }
 
-    inner class AddressListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class AddressListViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         fun onBind() {
             val customerName = itemView.findViewById<TextView>(R.id.tv_customer_name)
             val customerAddress = itemView.findViewById<TextView>(R.id.tv_customer_address)

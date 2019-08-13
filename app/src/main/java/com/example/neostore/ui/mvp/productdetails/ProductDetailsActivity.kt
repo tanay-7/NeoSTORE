@@ -3,9 +3,9 @@ package com.example.neostore.ui.mvp.productdetails
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Build
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.example.neostore.R
@@ -85,9 +85,13 @@ class ProductDetailsActivity : BaseActivity(), ProductDetailsContract.ProductDet
 
     private fun setRecyclerView(productDetailsImageList: List<ProductDetailsImages>) {
         productDetailsList = productDetailsImageList
-        val rvProductDetails = findViewById<RecyclerView>(R.id.rv_product_images) //Recycler
+        val rvProductDetails = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rv_product_images) //Recycler
         rvProductDetails.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)// Creates a horizontal Layout Manager
+            androidx.recyclerview.widget.LinearLayoutManager(
+                this,
+                androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+                false
+            )// Creates a horizontal Layout Manager
         val productDetailsAdapter = ProductDetailsAdapter(productDetailsImageList, this@ProductDetailsActivity, this)
         rvProductDetails.adapter = productDetailsAdapter
     }

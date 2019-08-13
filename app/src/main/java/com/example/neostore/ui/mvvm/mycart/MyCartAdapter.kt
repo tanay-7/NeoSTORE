@@ -1,7 +1,7 @@
 package com.example.neostore.ui.mvvm.mycart
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso
 class MyCartAdapter(
     var items: ArrayList<MyCartResponse>?,
     val context: Context
-) : RecyclerView.Adapter<MyCartAdapter.MyCartViewHolder>() {
+) : androidx.recyclerview.widget.RecyclerView.Adapter<MyCartAdapter.MyCartViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyCartViewHolder {
         var root = LayoutInflater.from(context).inflate(R.layout.item_cart, p0, false)
         return MyCartViewHolder(root)
@@ -28,7 +28,7 @@ class MyCartAdapter(
         p0.onBind()
     }
 
-    inner class MyCartViewHolder(var itemViews: View) : RecyclerView.ViewHolder(itemViews) {
+    inner class MyCartViewHolder(var itemViews: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemViews) {
         fun onBind() {
             val productImage = itemViews.findViewById<ImageView>(R.id.iv_cart_product)
             val productName = itemViews.findViewById<TextView>(R.id.tv_item_name)
